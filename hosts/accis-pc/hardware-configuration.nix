@@ -13,16 +13,6 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/60125b64-5da2-415c-b999-8f87adb39905";
-      fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/F220-E8B4";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
 
   swapDevices = [ ];
 
