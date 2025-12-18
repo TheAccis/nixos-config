@@ -1,3 +1,4 @@
+# TODO: Move to home-manager
 { inputs, ... }:
 {
 	imports = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];

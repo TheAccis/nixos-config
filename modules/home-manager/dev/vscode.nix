@@ -19,11 +19,13 @@
 			];
 
 			userSettings = {
+				"security.workspace.trust.untrustedFiles" = "open";
+
 				"editor.defaultFormatter" = "prettier.prettier-vscode";
 				"editor.fontSize" = 18;
 
 				"workbench.colorTheme" = "Default Dark Modern";
-				"workbench.startupEditor" = false;
+				"workbench.startupEditor" = "none";
 
 				"explorer.confirmDragAndDrop" = false;
 				"explorer.confirmDelete" = false;

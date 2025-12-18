@@ -1,6 +1,8 @@
-{ caelestia-shell, stylix, version, pkgs, user, lib, ... }: {
+{ caelestia-shell, zen-browser, stylix, version, pkgs, user, lib, ... }: 
+{
   imports = [
     caelestia-shell.homeManagerModules.default
+    zen-browser.homeModules.twilight
     stylix.homeModules.stylix
 
     ./apps
@@ -9,6 +11,7 @@
     ./gaming
     ./shells
     ./style
+    ./browsers
 
     # TODO: Move wm choice to meta
     ./wm/hyprland

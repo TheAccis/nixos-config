@@ -24,7 +24,7 @@
 			"HYPRCURSOR_SIZE,${toString config.stylix.cursor.size}"
 		];
 
-		monitor = ",highres,auto,1";
+		monitor = ",highres,auto,1.1";
 
 		xwayland.force_zero_scaling = true;
 
@@ -87,6 +87,8 @@
 			force_default_wallpaper = 0;
 			disable_hyprland_logo = true;
 		};
+
+		ecosystem.no_update_news = true;
 
 		windowrulev2 = [
 			"float,class:(mpv)|(showmethekey-gtk)"

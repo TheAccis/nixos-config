@@ -10,4 +10,7 @@ in
 		"${locale}.${encoding}/${encoding}"
 		"${fallbackLocale}.${encoding}/${encoding}"
 	];
+	i18n.extraLocaleSettings = {
+		LC_ALL = "${locale}.${encoding}";
+	};
 }
