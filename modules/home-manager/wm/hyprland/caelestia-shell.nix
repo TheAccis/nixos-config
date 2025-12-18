@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ meta, lib, ... }:
 {
 	# Caelestia has its own wallpaper service
 	services.hyprpaper.enable = lib.mkForce false;
@@ -20,7 +20,7 @@
 			];
 
 			# TODO: Set name from meta
-			paths.wallpaperDir = "~/Images";
+			paths.wallpaperDir = "~/${meta.dirs.wallapers}";
 		};
 
 		cli = {

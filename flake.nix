@@ -38,7 +38,7 @@
 		};
 	};
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+	outputs = { self, nixpkgs, home-manager, ... }@inputs:
 	let
 		system = "x86_64-linux";
 
@@ -51,8 +51,7 @@
 			"accis-pc"
 		];
 
-		# TODO: Change ./meta/apps.nix to ./meta
-		meta = import ./meta/apps.nix {
+		meta = import ./meta {
 			pkgs = nixpkgs.legacyPackages.${system};
 			lib = nixpkgs.lib;
 			config = { };

@@ -1,20 +1,21 @@
-{ pkgs, ... }:
+{ meta, ... }:
 {
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
+	xdg.userDirs = {
+		enable = true;
+		createDirectories = true;
 
-    # TODO: Move names to meta
-    pictures = "$HOME/Изображения";
-    documents = "$HOME/Документы";
-    download = "$HOME/Загрузки";
-    templates = "$HOME/Шаблоны";
+		pictures = "$HOME/${meta.dirs.pictures}";
+		documents = "$HOME/${meta.dirs.documents}";
+		download = "$HOME/${meta.dirs.download}";
+		templates = "$HOME/${meta.dirs.templates}";
 
-    desktop = null;
-    publicShare = null;
-    music = null;
-    videos = null;
-  };
+		desktop = null;
+		publicShare = null;
+		music = null;
+		videos = null;
+	};
 
-  home.activation.createGamesDir = ''mkdir -p "$HOME/Игры"'';
+	home.activation.createOtherDirs = ''
+		mkdir -p "$HOME/${meta.dirs.games}"
+	'';
 }
