@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, meta, ... }:
 {
 	home.packages = with pkgs; [
 		(xfce.thunar.override {
@@ -26,4 +26,20 @@
 		name = "Thunar Volman Settings";
 		noDisplay = true;
 	};
+
+	home.file.".config/Thunar/uca.xml".text = ''
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+    <icon>utilities-terminal</icon>
+    <name>Открыть терминал здесь</name>
+    <submenu></submenu>
+    <unique-id>17102345-1</unique-id>
+    <command>${meta.apps.terminal.extra.open-here}</command>
+    <description>Открыть терминал в текущей папке</description>
+    <patterns>*</patterns>
+    <directories/>
+</action>
+</actions>
+	'';
 }

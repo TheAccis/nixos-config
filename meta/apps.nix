@@ -11,6 +11,8 @@
 			name = "Alacritty";
 			filename = "alacritty";
 			command = "alacritty";
+
+			extra.open-here = "alacritty --working-directory %f";
 		};
 
 		editor = {

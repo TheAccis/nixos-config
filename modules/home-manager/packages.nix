@@ -1,10 +1,9 @@
-{ pkgs, zen-browser, ... }:
+{ pkgs, ... }:
 {
 	home.packages = with pkgs; [
 		# Desktop apps
 		bitwarden-desktop
 		telegram-desktop
-		zen-browser
 		pwvucontrol
 		qbittorrent
 		resources

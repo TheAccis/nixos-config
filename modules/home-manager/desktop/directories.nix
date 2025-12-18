@@ -5,12 +5,12 @@
     createDirectories = true;
 
     # TODO: Move names to meta
-    download = "$HOME/Загрузки";
-    documents = "$HOME/Документы";
     pictures = "$HOME/Изображения";
+    documents = "$HOME/Документы";
+    download = "$HOME/Загрузки";
+    templates = "$HOME/Шаблоны";
 
     desktop = null;
-    templates = null;
     publicShare = null;
     music = null;
     videos = null;
