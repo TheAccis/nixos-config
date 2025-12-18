@@ -22,7 +22,10 @@
 				"security.workspace.trust.untrustedFiles" = "open";
 
 				"editor.defaultFormatter" = "prettier.prettier-vscode";
+				"editor.detectIndentation" = false;
+				"editor.insertSpaces" = false;
 				"editor.fontSize" = 18;
+				"editor.tabSize" = 3;
 
 				"workbench.colorTheme" = "Default Dark Modern";
 				"workbench.startupEditor" = "none";

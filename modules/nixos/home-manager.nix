@@ -13,7 +13,7 @@
 		};
 
 		users.${user} = import ../home-manager/home.nix {
-			inherit version user pkgs lib;
+			inherit version user pkgs meta lib;
 
 			caelestia-shell = inputs.caelestia-shell;
 			zen-browser = inputs.zen-browser;

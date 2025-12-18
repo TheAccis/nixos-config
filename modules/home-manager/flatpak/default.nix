@@ -1,6 +1,6 @@
 {
   imports = [
-    ./home-packages.nix
+    ./tl-legacy.nix
     ./flatpak.nix
   ];
 }

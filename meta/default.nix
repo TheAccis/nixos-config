@@ -2,6 +2,7 @@
 let
   files = [
     ./directories.nix
+    ./settings.nix
     ./apps.nix
   ];
   

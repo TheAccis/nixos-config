@@ -3,11 +3,11 @@
   imports = [
     caelestia-shell.homeManagerModules.default
     zen-browser.homeModules.twilight
-    nix-flatpak.nixosModules.nix-flatpak
+    nix-flatpak.homeManagerModules.nix-flatpak
     stylix.homeModules.stylix
 
-    ./packages
     ./browsers
+    ./flatpak
     ./desktop
     ./gaming
     ./shells
