@@ -1,6 +1,6 @@
-{ version, hostname, ... }:
+{ hostname, meta, ... }:
 {
 	networking.hostName = hostname;
 
-	system.stateVersion = version;
+	system.stateVersion = meta.version;
 }

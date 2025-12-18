@@ -8,7 +8,7 @@
 			];
 		})
 
-		# TODO: xarchiver not working in thunar
+		# FIXME: xarchiver not working in thunar
 		xarchiver
 	];
 

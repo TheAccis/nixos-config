@@ -1,7 +1,7 @@
-{ user, ... }: 
+{ meta, ... }: 
 {
   programs.nh = {
     enable = true;
-    flake = "/home/${user}/nixos-config";
+    flake = "/home/${meta.user}/nixos-config";
   };
 }

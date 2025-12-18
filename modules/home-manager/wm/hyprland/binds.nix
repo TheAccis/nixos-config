@@ -10,7 +10,7 @@
 			"$main-button SHIFT, R, exec, apps_menu_extended"
 			"$main-button,       P, pin,"
 			"$main-button,       J, togglesplit,"
-			"$main-button,       E, exec, ${meta.apps.fileManager.command}"
+			"$main-button,       E, exec, ${meta.apps.file-manager.command}"
 			"$main-button,       L, exec, loginctl lock-session"
 			"$main-button,       P, exec, hyprpicker -an"
 			"$main-button,       N, exec, swaync-client -t"

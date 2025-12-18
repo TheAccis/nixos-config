@@ -40,29 +40,19 @@
 
 	outputs = { self, nixpkgs, home-manager, ... }@inputs:
 	let
-		system = "x86_64-linux";
-
-		version = "25.11";
-
-		user = "accis";
-
-		hostnames = [
-			"acer-nitro-lite"
-			"accis-pc"
-		];
-
 		meta = import ./meta {
-			pkgs = nixpkgs.legacyPackages.${system};
+			pkgs = nixpkgs.legacyPackages."x86_64-linux";
 			lib = nixpkgs.lib;
 			config = { };
 		};
 
 		makeSystem = hostname: nixpkgs.lib.nixosSystem {
-			system = system;
-			specialArgs = { inherit inputs version hostname user meta; };
+			system = meta.system;
+			specialArgs = { inherit hostname inputs meta; };
 			modules = [ ./hosts/${hostname}/configuration.nix ];
 		};
-	in {
-		nixosConfigurations = nixpkgs.lib.genAttrs hostnames makeSystem;
+	in
+	{
+		nixosConfigurations = nixpkgs.lib.genAttrs meta.hostnames makeSystem;
 	};
 }

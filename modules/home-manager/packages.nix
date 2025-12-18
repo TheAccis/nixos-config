@@ -10,7 +10,6 @@
   	kdiskmark
 		#pinta
 		v2rayn
-		qview
 		#mpv
 
 		# CLI utils

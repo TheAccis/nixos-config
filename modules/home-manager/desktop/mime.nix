@@ -8,10 +8,10 @@
 
 		"application/pdf" = "${meta.apps.browser.filename}.desktop";
 
-		"image/generic" = "${meta.apps.imageViewer.filename}.desktop";
-		"video/generic" = "${meta.apps.videoViewer.filename}.desktop";
-		"audio/generic" = "${meta.apps.audioViewer.filename}.desktop";
-		"inode/directory" = "${meta.apps.fileManager.filename}.desktop";
+		"image/generic" = "${meta.apps.image-viewer.filename}.desktop";
+		"video/generic" = "${meta.apps.video-viewer.filename}.desktop";
+		"audio/generic" = "${meta.apps.audio-viewer.filename}.desktop";
+		"inode/directory" = "${meta.apps.file-manager.filename}.desktop";
 
 		"x-scheme-handler/http" = "${meta.apps.browser.filename}.desktop";
 		"x-scheme-handler/https" = "${meta.apps.browser.filename}.desktop";
@@ -19,7 +19,7 @@
 
 		"application/x-compressed-tar" = "${meta.apps.archiver.filename}.desktop";
 		"application/zip" = "${meta.apps.archiver.filename}.desktop";
-		"application/x-bittorrent" = "${meta.apps.torrentClient.filename}.desktop";
-		"x-scheme-handler/magnet" = "${meta.apps.torrentClient.filename}.desktop";
+		"application/x-bittorrent" = "${meta.apps.torrent-client.filename}.desktop";
+		"x-scheme-handler/magnet" = "${meta.apps.torrent-client.filename}.desktop";
 	};
 }

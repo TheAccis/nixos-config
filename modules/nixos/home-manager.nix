@@ -1,4 +1,4 @@
-{ version, inputs, user, meta, pkgs, lib, ... }: 
+{ config, inputs, meta, pkgs, lib, ... }: 
 {
 	imports = [ inputs.home-manager.nixosModules.default ];
 
@@ -9,11 +9,11 @@
 
 		extraSpecialArgs = {
 			inherit meta;
-			vscode-extensions = inputs.vscode-extensions.extensions.${pkgs.system};
+			vscode-extensions = inputs.vscode-extensions.extensions.${meta.system};
 		};
 
-		users.${user} = import ../home-manager/home.nix {
-			inherit version user pkgs meta lib;
+		users.${meta.user} = import ../home-manager/home.nix {
+			inherit pkgs meta lib;
 
 			caelestia-shell = inputs.caelestia-shell;
 			zen-browser = inputs.zen-browser;

@@ -1,11 +1,11 @@
-{ pkgs, user, ... }:
+{ meta, pkgs, ... }:
 {
 	programs.zsh.enable = true;
 
 	users.defaultUserShell = pkgs.zsh;
 
 	users.users = {
-		${user} = {
+		${meta.user} = {
 			hashedPassword = "$6$FaEVp7cERlE479aZ$NkjXrEekaLJQq4KGtPIjCKSQfpGXApMhJun92F3VDxX76C1t1aoMbzyQ2lxVXDtbdkB2eo07/C2MfI4t.2pSa.";
 			isNormalUser = true;
 			extraGroups = [
@@ -23,5 +23,5 @@
 		};
 	};
 
-	services.getty.autologinUser = user;
+	services.getty.autologinUser = meta.user;
 }

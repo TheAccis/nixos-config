@@ -15,7 +15,6 @@
 			"XDG_SESSION_TYPE,wayland"
 			"XDG_SESSION_DESKTOP,Hyprland"
 			"QT_QPA_PLATFORM,wayland"
-			"XDG_SCREENSHOTS_DIR,$HOME/screens"
 
 			# TODO: This code not working
 			"XCURSOR_THEME,${config.stylix.cursor.name}"
@@ -24,7 +23,7 @@
 			"HYPRCURSOR_SIZE,${toString config.stylix.cursor.size}"
 		];
 
-		monitor = ",highres,auto,1.1";
+		monitor = ",highres,auto,1.0666667";
 
 		xwayland.force_zero_scaling = true;
 

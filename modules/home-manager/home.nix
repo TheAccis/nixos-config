@@ -1,4 +1,4 @@
-{ caelestia-shell, zen-browser, nix-flatpak, stylix, version, pkgs, meta, user, lib, ... }: 
+{ caelestia-shell, zen-browser, nix-flatpak, stylix, pkgs, meta, lib, ... }: 
 {
   imports = [
     caelestia-shell.homeManagerModules.default
@@ -16,11 +16,13 @@
     ./dev
 
     ./wm/${meta.wm}
+
+    ./packages.nix
   ];
 
   home = {
-    username = user;
-    homeDirectory = "/home/${user}";
-    stateVersion = version;
+    username = meta.user;
+    homeDirectory = "/home/${meta.user}";
+    stateVersion = meta.version;
   };
 }

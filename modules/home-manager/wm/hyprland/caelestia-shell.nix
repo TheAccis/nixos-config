@@ -19,7 +19,7 @@
 				}
 			];
 
-			paths.wallpaperDir = "~/${meta.dirs.wallapers}";
+			paths.wallpaperDir = "~/${meta.dirs.wallpapers}";
 		};
 
 		cli = {

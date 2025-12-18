@@ -21,7 +21,7 @@
 			command = "codium";
 		};
 
-		fileManager = {
+		file-manager = {
 			name = "Thunar";
 			filename = "thunar";
 			command = "thunar";
@@ -33,25 +33,25 @@
 			command = "xarchiver";
 		};
 
-		torrentClient = {
+		torrent-client = {
 			name = "QBitTorrent";
 			filename = "org.qbittorrent.qBittorrent";
 			command = "qbittorrent";
 		};
 
-		imageViewer = {
+		image-viewer = {
 			name = "qView";
 			filename = "com.interversehq.qView";
 			command = "qview";
 		};
 
-		videoViewer = {
+		video-viewer = {
 			name = "...";
 			filename = "...";
 			command = "...";
 		};
 
-		audioViewer = {
+		audio-viewer = {
 			name = "...";
 			filename = "...";
 			command = "...";
