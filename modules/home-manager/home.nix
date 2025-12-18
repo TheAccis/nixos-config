@@ -1,22 +1,21 @@
-{ caelestia-shell, zen-browser, stylix, version, pkgs, user, lib, ... }: 
+{ caelestia-shell, zen-browser, nix-flatpak, stylix, version, pkgs, meta, user, lib, ... }: 
 {
   imports = [
     caelestia-shell.homeManagerModules.default
     zen-browser.homeModules.twilight
+    nix-flatpak.nixosModules.nix-flatpak
     stylix.homeModules.stylix
 
-    ./apps
+    ./packages
+    ./browsers
     ./desktop
-    ./dev
     ./gaming
     ./shells
     ./style
-    ./browsers
+    ./apps
+    ./dev
 
-    # TODO: Move wm choice to meta
-    ./wm/hyprland
-
-    ./packages.nix
+    ./wm/${meta.wm}
   ];
 
   home = {

@@ -1,11 +1,6 @@
-# TODO: Move to home-manager
 { inputs, ... }:
 {
-	imports = [ inputs.nix-flatpak.nixosModules.nix-flatpak ];
-
 	services.flatpak = {
-		enable = true;
-
 		packages = [
 			"ch.tlaun.TL"
 		];

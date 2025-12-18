@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-	dirs = {
+	dirs = rec {
 		# Default
 		pictures = "Изображения";
 		documents = "Документы";
@@ -8,7 +8,7 @@
 		templates = "Шаблоны";
 
 		# Own
-		wallapers = "${dirs.pictures}/Обои";
+		wallapers = "${pictures}/Обои";
 		games = "Игры";
 	};
 }

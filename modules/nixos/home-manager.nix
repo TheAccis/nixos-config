@@ -9,7 +9,6 @@
 
 		extraSpecialArgs = {
 			inherit meta;
-			# zen-browser = inputs.zen-browser.packages.${pkgs.system}.default;
 			vscode-extensions = inputs.vscode-extensions.extensions.${pkgs.system};
 		};
 
@@ -17,8 +16,9 @@
 			inherit version user pkgs lib;
 
 			caelestia-shell = inputs.caelestia-shell;
-			stylix = inputs.stylix;
 			zen-browser = inputs.zen-browser;
+			nix-flatpak = inputs.nix-flatpak;
+			stylix = inputs.stylix;
 		};
 	};
 }

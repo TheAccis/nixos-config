@@ -19,7 +19,6 @@
 				}
 			];
 
-			# TODO: Set name from meta
 			paths.wallpaperDir = "~/${meta.dirs.wallapers}";
 		};
 
