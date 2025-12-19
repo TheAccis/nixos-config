@@ -1,7 +1,8 @@
 {
 	imports = [
 		./alacritty.nix
-		./git.nix
 		./thunar.nix
+    ./qview.nix
+		./git.nix
 	];
 }

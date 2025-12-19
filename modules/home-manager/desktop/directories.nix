@@ -1,38 +1,38 @@
-{ meta, ... }:
+{ config, meta, lib, ... }:
+let
+	home = config.home.homeDirectory;
+in
 {
 	xdg = {
-	  enable = true;
-	  configHome = "$HOME/${apps-home}/${apps-config}";
-	  stateHome = "$HOME/${apps-home}/${apps-state}";
-	  dataHome = "$HOME/${apps-home}/${apps-share}";
-	  cacheHome = "$HOME/${apps-home}/${apps-cache}";
+		enable = true;
+		configHome = "${home}/${meta.dirs.apps-config}";
+		stateHome = "${home}/${meta.dirs.apps-state}";
+		dataHome = "${home}/${meta.dirs.apps-share}";
+		cacheHome = "${home}/${meta.dirs.apps-cache}";
 	};
 	
 	xdg.userDirs = {
 		enable = true;
 		createDirectories = true;
 
-		pictures = meta.dirs.pictures;
-		videos = meta.dirs.videos;
-		music = meta.dirs.music;
+		pictures = "${home}/${meta.dirs.pictures}";
+		videos = "${home}/${meta.dirs.videos}";
+		music = "${home}/${meta.dirs.music}";
 
-		documents = meta.dirs.documents;
-		download = meta.dirs.download;
-		templates = meta.dirs.templates;
+		documents = "${home}/${meta.dirs.documents}";
+		download = "${home}/${meta.dirs.download}";
+		templates = "${home}/${meta.dirs.templates}";
 
 		desktop = null;
 		publicShare = null;
 
 		extraConfig = {
-			XDG_SCREENSHOTS_DIR = "$HOME/${meta.dirs.screenshots}";
+			XDG_SCREENSHOTS_DIR = "${home}/${meta.dirs.screenshots}";
 		};
 	};
-
-	systemd.user.tmpfiles.rules = [
-		"d $HOME/${meta.dirs.screenshots} 0755 - - -"
-		"d $HOME/${meta.dirs.wallpapers} 0755 - - -"
-		"d $HOME/${meta.dirs.torrent} 0755 - - -"
-		"d $HOME/${meta.dirs.games} 0755 - - -"
-		"d $HOME/${meta.dirs.media} 0755 - - -"
-	];
+	
+	# Create custom folders
+	systemd.user.tmpfiles.rules = map (dir: 
+		"d ${home}/${dir} 0755 - - -"
+	) meta.dirs.custom;
 }
