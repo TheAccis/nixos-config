@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
 	programs.wofi.enable = true;
 	programs.wofi.settings = {
@@ -8,7 +8,7 @@
 		height = 450;
 	};
 
-	home.file.".config/wofi/style.css".source = ./style.css;
+	home.file."${config.xdg.configHome}/wofi/style.css".source = ./style.css;
 
 	home.packages = with pkgs; [
 

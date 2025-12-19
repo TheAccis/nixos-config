@@ -3,7 +3,7 @@
 with lib;
 
 let
-	cfg = config.meta.lib.mutable-file;
+	cfg = config.meta.lib.home.mutable-file;
 in {
 	options.meta.lib.home.mutable-file = mkOption {
 		type = types.attrsOf (types.submodule ({ name, ... }: {

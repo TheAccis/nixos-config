@@ -2,7 +2,17 @@
 let
 	package-name = "ch.tlaun.TL";
 	config-path = ".var/app/${package-name}/config/tl.properties";
-	config-content = ''
+in 
+{
+	services.flatpak = {
+		packages = [ package-name ];
+
+		overrides."${package-name}".Environment = {
+			TL_BOOTSTRAP_OPTIONS = "-Dtl.useForce"; 
+		};
+	};
+
+	meta.lib.home.mutable-file."${config-path}".text = ''
 		bootstrap.switchToBeta=false
 		client=2523222e-dde8-4715-92e5-bd963e2b54a4
 		connection.ssl=true
@@ -23,10 +33,7 @@ let
 		gui.logger.y=30
 		gui.notices.enabled=false
 		gui.size=894;1150
-		locale=ru_RU
-		login.account=Accis
-		login.account.type=plain
-		login.version=ForgeOptiFine 1.16.5
+		locale=${meta.locale.default}
 		minecraft.crash=false
 		minecraft.fullscreen=true
 		minecraft.gamedir.separate=version
@@ -56,27 +63,4 @@ let
 		notice.promoted=true
 		settings.version=3
 	'';
-in 
-{
-	services.flatpak = {
-		packages = [ package-name ];
-
-		overrides."${package-name}".Environment = {
-			TL_BOOTSTRAP_OPTIONS = "-Dtl.useForce"; 
-		};
-	};
-
-  #meta.lib.mutable-file."${config-path}" = {
-  #  text = config-content;
-  #};
-
-	# home.activation.createTlProperties = 
-	# let
-	# 	content-file = builtins.toFile "tl.properties" config-content;
-	# in
-	# config.lib.dag.entryAfter ["writeBoundary"] ''
-	# 	$DRY_RUN_CMD mkdir -p "$HOME/${dirOf config-path}"
-	# 	$DRY_RUN_CMD cp -f "${content-file}" "$HOME/${config-path}"
-	# 	$DRY_RUN_CMD chmod 644 "$HOME/${config-path}"
-	# '';
 }

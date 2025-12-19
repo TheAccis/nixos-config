@@ -3,6 +3,12 @@
 	# Available wm: hyprland
 	wm = "hyprland";
 
+  locale = {
+    default = "ru_RU";
+    fallback = "en_US";
+    encoding = "UTF-8";
+  };
+
   # System architecture
   system = pkgs.stdenv.hostPlatform.system;
 

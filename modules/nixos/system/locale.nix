@@ -1,16 +1,11 @@
-let
-	locale = "ru_RU";
-	fallbackLocale = "en_US";
-
-	encoding = "UTF-8";
-in
+{ meta, ... }:
 {
-	i18n.defaultLocale = "${locale}.${encoding}";
+	i18n.defaultLocale = "${meta.locale.default}.${meta.locale.encoding}";
 	i18n.extraLocales = [
-		"${locale}.${encoding}/${encoding}"
-		"${fallbackLocale}.${encoding}/${encoding}"
+		"${meta.locale.default}.${meta.locale.encoding}/${meta.locale.encoding}"
+		"${meta.locale.fallback}.${meta.locale.encoding}/${meta.locale.encoding}"
 	];
 	i18n.extraLocaleSettings = {
-		LC_ALL = "${locale}.${encoding}";
+		LC_ALL = "${meta.locale.default}.${meta.locale.encoding}";
 	};
 }
