@@ -1,10 +1,12 @@
-{ caelestia-shell, zen-browser, nix-flatpak, stylix, pkgs, meta, lib, ... }: 
+{ modules, pkgs, meta, lib, ... }: 
 {
   imports = [
-    caelestia-shell.homeManagerModules.default
-    zen-browser.homeModules.twilight
-    nix-flatpak.homeManagerModules.nix-flatpak
-    stylix.homeModules.stylix
+    modules.caelestia-shell.homeManagerModules.default
+    modules.zen-browser.homeModules.twilight
+    modules.nix-flatpak.homeManagerModules.nix-flatpak
+    modules.stylix.homeModules.stylix
+
+    meta.lib-modules.home
 
     ./browsers
     ./flatpak

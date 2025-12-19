@@ -10,15 +10,15 @@
 		extraSpecialArgs = {
 			inherit meta;
 			vscode-extensions = inputs.vscode-extensions.extensions.${meta.system};
+
+			modules = {
+				caelestia-shell = inputs.caelestia-shell;
+				zen-browser = inputs.zen-browser;
+				nix-flatpak = inputs.nix-flatpak;
+				stylix = inputs.stylix;
+			};
 		};
 
-		users.${meta.user} = import ../home-manager/home.nix {
-			inherit pkgs meta lib;
-
-			caelestia-shell = inputs.caelestia-shell;
-			zen-browser = inputs.zen-browser;
-			nix-flatpak = inputs.nix-flatpak;
-			stylix = inputs.stylix;
-		};
+		users.${meta.user} = import ../home-manager/home.nix;
 	};
 }

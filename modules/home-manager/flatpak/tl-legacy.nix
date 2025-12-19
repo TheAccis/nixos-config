@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, meta, ... }:
 let
 	package-name = "ch.tlaun.TL";
 	config-path = ".var/app/${package-name}/config/tl.properties";
@@ -66,13 +66,17 @@ in
 		};
 	};
 
-	home.activation.createTlProperties = 
-	let
-		content-file = builtins.toFile "tl.properties" config-content;
-	in
-	config.lib.dag.entryAfter ["writeBoundary"] ''
-		$DRY_RUN_CMD mkdir -p "$HOME/${dirOf config-path}"
-		$DRY_RUN_CMD cp -f "${content-file}" "$HOME/${config-path}"
-		$DRY_RUN_CMD chmod 644 "$HOME/${config-path}"
-	'';
+  #meta.lib.mutable-file."${config-path}" = {
+  #  text = config-content;
+  #};
+
+	# home.activation.createTlProperties = 
+	# let
+	# 	content-file = builtins.toFile "tl.properties" config-content;
+	# in
+	# config.lib.dag.entryAfter ["writeBoundary"] ''
+	# 	$DRY_RUN_CMD mkdir -p "$HOME/${dirOf config-path}"
+	# 	$DRY_RUN_CMD cp -f "${content-file}" "$HOME/${config-path}"
+	# 	$DRY_RUN_CMD chmod 644 "$HOME/${config-path}"
+	# '';
 }
