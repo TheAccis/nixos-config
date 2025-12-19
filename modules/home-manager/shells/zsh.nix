@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, meta, ... }:
 {
 	programs.zsh = {
 		enable = true;
@@ -14,6 +14,8 @@
 				echo 'Hard-linking files...'
 				nix-store --optimise
 			'';
+
+      home-packages = "nix eval ${meta.config-path}#nixosConfigurations.$(hostname).config.home-manager.users.$(whoami).home.packages --json | jq -r '.[]' | sed -E 's|/nix/store/[a-z0-9]{32}-||' | sort -u";
 
 			microfetch = "microfetch && echo";
 			se = "sudoedit";

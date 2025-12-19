@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }:
-{
+rec {
+  config-path = "/home/${user}/nixos-config";
+
 	# Available wm: hyprland
 	wm = "hyprland";
 

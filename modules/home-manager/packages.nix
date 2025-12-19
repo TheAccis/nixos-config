@@ -2,14 +2,11 @@
 {
 	home.packages = with pkgs; [
 		# Desktop apps
-		bitwarden-desktop
 		telegram-desktop
 		pwvucontrol
-		qbittorrent
+		fragments
 		resources
-  	kdiskmark
 		#pinta
-		v2rayn
 		#mpv
 
 		# CLI utils
@@ -18,7 +15,6 @@
 		vulkan-tools
 		hyprpicker
 		microfetch
-		mesa-demos
 		grimblast
 		cliphist
 		nix-tree
@@ -32,6 +28,7 @@
 		wget
 		zip
 		fd
+		jq
 
 		# WM stuff
 		xdg-desktop-portal-hyprland
