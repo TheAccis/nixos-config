@@ -2,15 +2,7 @@
 let
 	home = config.home.homeDirectory;
 in
-{
-	xdg = {
-		enable = true;
-		configHome = "${home}/${meta.dirs.apps-config}";
-		stateHome = "${home}/${meta.dirs.apps-state}";
-		dataHome = "${home}/${meta.dirs.apps-share}";
-		cacheHome = "${home}/${meta.dirs.apps-cache}";
-	};
-	
+{	
 	xdg.userDirs = {
 		enable = true;
 		createDirectories = true;

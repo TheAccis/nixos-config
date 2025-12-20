@@ -1,13 +1,6 @@
 { config, lib, pkgs, ... }:
 {
 	dirs = rec {
-		# Base directories
-		apps-home = ".apps-home";
-		apps-config = "${apps-home}/config";
-		apps-state = "${apps-home}/state";
-		apps-share = "${apps-home}/store";
-		apps-cache = "${apps-home}/cache";
-
 		# User directories
 		documents = "Документы";
 		download = "Загрузки";

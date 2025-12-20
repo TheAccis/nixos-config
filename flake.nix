@@ -14,6 +14,11 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 
+    inputs.agenix = {
+      url = "github:ryantm/agenix/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 		nix-flatpak = {
 			url = "github:gmodena/nix-flatpak";
 		};

@@ -8,6 +8,7 @@
 
 		shellAliases = {
 			os-rebuild = "nh os switch";
+			os-rebuild-test = "nh os test";
 			os-update = "nh os switch --update";
 			os-clean = ''
 				sudo nix-collect-garbage -d
