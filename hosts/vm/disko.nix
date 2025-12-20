@@ -3,7 +3,7 @@
 	imports = [ inputs.disko.nixosModules.disko ];
 
 	disko.devices.disk.main = {
-		device = "/dev/vda";
+		device = "/dev/sda";
 		type = "disk";
 
 		content.type = "gpt";
