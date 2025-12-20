@@ -51,6 +51,12 @@
 			config = { };
 		};
 
+    pkgs = nixpkgs.legacyPackages."${meta.system}";
+
+    install-script = import ./meta/lib/install-system.nix {
+      inherit self inputs meta pkgs;
+    };
+
 		makeSystem = hostname: nixpkgs.lib.nixosSystem {
 			system = meta.system;
 			specialArgs = { inherit hostname inputs meta; };
@@ -62,7 +68,7 @@
 	
     apps."${meta.system}".install = {
       type = "app";
-      program = "${pkgs.writeScriptBin "nixos-install-script" installScript}";
+      program = "${pkgs.writeScriptBin "nixos-install-script" install-script}";
     };
   };
 }
