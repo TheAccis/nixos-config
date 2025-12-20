@@ -2,7 +2,6 @@
 let
   lib = pkgs.lib;
   hostnamesList = lib.concatStringsSep ", " meta.hostnames;
-  # Более надежное определение disko пакета
   diskoPkg = inputs.disko.packages.${pkgs.system}.disko or inputs.disko.defaultPackage.${pkgs.system};
 in
 ''
@@ -36,10 +35,10 @@ in
 
   echo "💾 Running disko (partitioning and mounting disks)..."
   sudo nix --experimental-features "nix-command flakes" \
-    run ${diskoPkg} -- --mode destroy,format,mount --flake "${self}#${hostname}"
+    run ${diskoPkg} -- --mode destroy,format,mount --flake "${self}#$hostname"
 
   echo "📦 Installing NixOS system..."
-  sudo nixos-install --flake "${self}#${hostname}" --no-root-passwd
+  sudo nixos-install --flake "${self}#$hostname" --no-root-passwd
 
   echo "==============================================="
   echo "✅ Installation complete!"
