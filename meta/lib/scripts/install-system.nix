@@ -1,4 +1,4 @@
-{ self, inputs, meta, pkgs, ... }:
+{ hostname, self, inputs, meta, pkgs, ... }:
 
 let
   lib = pkgs.lib;
