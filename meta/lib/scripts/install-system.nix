@@ -4,8 +4,6 @@ let
 	hostnamesList = lib.concatStringsSep ", " meta.hostnames;
 in
 ''
-	#!/usr/bin/env bash
-
 	set -euo pipefail
 
 	if [ $# -ne 1 ]; then
