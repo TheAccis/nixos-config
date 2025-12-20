@@ -37,7 +37,7 @@ in
 
 	echo "* Running disko (partitioning and mounting disks)..."
 	sudo nix --extra-experimental-features "nix-command flakes" \
-		run github:nix-community/disko -- --mode destroy,format,mount --flake "${self}#$hostname" \
+		run github:nix-community/disko -- --mode destroy,format,mount --flake "${self}#$hostname" -y \
 		> /dev/null
 
 	echo "* Installing NixOS system..."
