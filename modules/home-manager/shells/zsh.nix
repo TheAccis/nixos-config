@@ -11,7 +11,7 @@
 			os-rebuild-test = "nh os test";
 			os-update = "nh os switch --update";
 			os-clean = ''
-				sudo nix-collect-garbage -d
+				sudo nix-collect-garbage -d --quiet
 				echo 'Hard-linking files...'
 				nix-store --optimise
 			'';

@@ -2,7 +2,7 @@
 	description = "My system configuration";
 
 	inputs = {
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11?shallow=1";
 
 		disko = {
 			url = "github:nix-community/disko";
