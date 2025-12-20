@@ -3,7 +3,7 @@
 let
   lib = pkgs.lib;
   hostnamesList = lib.concatStringsSep ", " meta.hostnames;
-  hostnamesArray = lib.concatStringsSep " " meta.hostnames;
+  hostnamesArray = lib.concatStringsSep "'" "'" meta.hostnames;
 in
 ''
   #!/usr/bin/env bash
@@ -18,29 +18,32 @@ in
 
   hostname="$1"
 
+  # Более надежная проверка наличия хоста в списке
   found=0
-  for h in ${hostnamesArray}; do
-    if [ "$h" = "$hostname" ]; then
+  case "$hostname" in
+    ${lib.concatStringsSep "|" (map (h: "'" + h + "'") meta.hostnames)})
       found=1
-      break
-    fi
-  done
+      ;;
+    *)
+      found=0
+      ;;
+  esac
 
-  if [ \$found -ne 1 ]; then
-    echo "Error: Hostname '\$hostname' not found in flake"
+  if [ $found -ne 1 ]; then
+    echo "Error: Hostname '$hostname' not found in flake"
     echo "Available hostnames: ${hostnamesList}"
     exit 2
   fi
 
-  echo "🚀 Installing NixOS configuration for host: \$hostname"
+  echo "🚀 Installing NixOS configuration for host: $hostname"
   echo "==============================================="
 
   echo "💾 Running disko (partitioning and mounting disks)..."
   sudo nix --extra-experimental-features "nix-command flakes" \
-    run ${inputs.disko.outPath} -- --mode destroy,format,mount --flake "${self}#\$hostname"
+    run ${inputs.disko.outPath} -- --mode destroy,format,mount --flake "${self}#$hostname"
 
   echo "📦 Installing NixOS system..."
-  sudo nixos-install --flake "${self}#\$hostname" --no-root-passwd
+  sudo nixos-install --flake "${self}#$hostname" --no-root-passwd
 
   echo "==============================================="
   echo "✅ Installation complete!"
