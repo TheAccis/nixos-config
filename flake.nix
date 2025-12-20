@@ -59,5 +59,10 @@
 	in
 	{
 		nixosConfigurations = nixpkgs.lib.genAttrs meta.hostnames makeSystem;
-	};
+	
+    apps."${meta.system}".install = {
+      type = "app";
+      program = "${pkgs.writeScriptBin "nixos-install-script" installScript}";
+    };
+  };
 }

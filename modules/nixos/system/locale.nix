@@ -1,11 +1,23 @@
 { meta, ... }:
+let
+  default = "${meta.locale.default}.${enc}";
+  fallback = "${meta.locale.fallback}.${enc}";
+  enc = meta.locale.encoding;
+in
 {
-	i18n.defaultLocale = "${meta.locale.default}.${meta.locale.encoding}";
+	i18n.defaultLocale = default;
 	i18n.extraLocales = [
-		"${meta.locale.default}.${meta.locale.encoding}/${meta.locale.encoding}"
-		"${meta.locale.fallback}.${meta.locale.encoding}/${meta.locale.encoding}"
+		"${default}/${enc}"
+		"${fallback}/${enc}"
 	];
 	i18n.extraLocaleSettings = {
-		LC_ALL = "${meta.locale.default}.${meta.locale.encoding}";
+    LC_MESSAGES = default;
+		LC_ALL = default;
+    LANG = default;
 	};
+
+  environment.sessionVariables = {
+    LC_ALL = default;
+    LANG = default;
+  };
 }
