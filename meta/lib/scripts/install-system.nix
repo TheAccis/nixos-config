@@ -38,7 +38,7 @@ in
     run ${inputs.disko.outPath} -- --mode destroy,format,mount --flake "${self}#\${hostname}"
 
   echo "📦 Installing NixOS system..."
-  sudo nixos-install --flake "${self}#\${hostname}" --no-root-passwd
+  sudo nixos-install --flake "${self}#\$hostname" --no-root-passwd
 
   echo "==============================================="
   echo "✅ Installation complete!"
