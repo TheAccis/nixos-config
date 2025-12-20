@@ -19,19 +19,16 @@ in
 
   hostname="$1"
 
-  found=0
-  for h in ${lib.concatStringsSep " " (map (x: "'" + x + "'") meta.hostnames)}; do
-    if [ "$h" = "'$hostname'" ]; then
-      found=1
-      break
-    fi
-  done
-
-  if [ $found -ne 1 ]; then
-    echo "Error: Hostname '$hostname' not found in flake"
-    echo "Available hostnames: ${hostnamesList}"
-    exit 2
-  fi
+  case "$hostname" in
+    ${hostPattern})
+      # valid
+      ;;
+    *)
+      echo "Error: Hostname '$hostname' not found in flake"
+      echo "Available hostnames: ${hostnamesList}"
+      exit 2
+      ;;
+  esac
 
   echo "🚀 Installing NixOS configuration for host: $hostname"
   echo "==============================================="

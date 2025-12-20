@@ -1,29 +1,29 @@
 { config, lib, pkgs, ... }:
 rec {
-  config-path = "/home/${user}/nixos-config";
+	config-path = "/home/${user}/nixos-config";
 
 	# Available wm: hyprland
 	wm = "hyprland";
 
-  locale = {
-    default = "ru_RU";
-    fallback = "en_US";
-    encoding = "UTF-8";
-  };
+	locale = {
+		default = "ru_RU";
+		fallback = "en_US";
+		encoding = "UTF-8";
+	};
 
-  # System architecture
-  system = pkgs.stdenv.hostPlatform.system;
+	# System architecture
+	system = pkgs.stdenv.hostPlatform.system;
 
-  # NixOS branch
-  version = "25.11";
+	# NixOS branch
+	version = "25.11";
 
-  # Username
-  user = "accis";
+	# Username
+	user = "accis";
 
-  # Hosts
-  hostnames = [
+	# Hosts
+	hostnames = [
 		"acer-nitro-lite"
 		"accis-pc"
-    "vm"
+		"vm"
 	];
 }
