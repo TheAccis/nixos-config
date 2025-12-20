@@ -1,7 +1,7 @@
 { self, inputs, meta, pkgs, ... }:
 let
-	lib = pkgs.lib;
-	hostnamesList = lib.concatStringsSep ", " meta.hostnames;
+	hostnamesList = pkgs.lib.concatStringsSep ", " meta.hostnames;
+	divider = "==================================================";
 in
 ''
 	set -euo pipefail
@@ -15,8 +15,7 @@ in
 	hostname="$1"
 	valid_host=0
 
-	# Проверяем, что hostname существует в списке
-	for valid_host in ${lib.concatStringsSep " " meta.hostnames}; do
+	for valid_host in ${pkgs.lib.concatStringsSep " " meta.hostnames}; do
 		if [ "$valid_host" = "$hostname" ]; then
 			valid_host=1
 			break
