@@ -1,7 +1,7 @@
 { self, inputs, meta, pkgs, ... }:
 let
 	hostnamesList = pkgs.lib.concatStringsSep ", " meta.hostnames;
-	divider = "${divider}===";
+	divider = "========================================";
 in
 ''
 	set -euo pipefail
@@ -13,16 +13,16 @@ in
 	fi
 
 	hostname="$1"
-	valid_host=0
+	found=0
 
 	for valid_host in ${pkgs.lib.concatStringsSep " " meta.hostnames}; do
 		if [ "$valid_host" = "$hostname" ]; then
-			valid_host=1
+			found=1
 			break
 		fi
 	done
 
-	if [ $valid_host -eq 0 ]; then
+	if [ $found -eq 0 ]; then
 		echo "Error: Hostname '$hostname' not found in flake"
 		echo "Available hostnames: ${hostnamesList}"
 		exit 2
