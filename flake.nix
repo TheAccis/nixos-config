@@ -53,7 +53,7 @@
 
     pkgs = nixpkgs.legacyPackages."${meta.system}";
 
-    install-script = import ./meta/lib/install-system.nix {
+    install-script = import ./meta/lib/scripts/install-system.nix {
       inherit self inputs meta pkgs;
     };
 
