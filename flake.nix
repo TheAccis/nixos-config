@@ -68,7 +68,7 @@
 	
     apps."${meta.system}".install = {
       type = "app";
-      program = "${pkgs.writeScriptBin "nixos-install-script" install-script}";
+      program = "${pkgs.writeScriptBin "nixos-install-script" install-script}/bin/nixos-install-script";
     };
   };
 }
