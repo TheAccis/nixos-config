@@ -5,7 +5,7 @@
 
 		extraCompatPackages = with pkgs; [ proton-ge-bin ];
 
-		gamescopeSession.enable = true
+		gamescopeSession.enable = true;
 	};
 
 	programs.gamemode = {
@@ -19,11 +19,5 @@
 	environment.systemPackages = with pkgs; [
 		(mangohud.override { lowerBitnessSupport = true; })
 		gamescope
-		adwsteamgtk
 	];
-
-	xdg.desktopEntries."io.github.Foldex.AdwSteamGtk" = {
-		name = "AdwSteamGtk";
-		noDisplay = true;
-	};
 }

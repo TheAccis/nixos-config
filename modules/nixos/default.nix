@@ -1,15 +1,16 @@
 {
 	imports = [
-		./desktop
 		./hardware
 		./security
 		./services
+    ./packages
+		./desktop
 		./system
 
-		./boot.nix
 		./home-manager.nix
 		./kernel.nix
-		./nix.nix
 		./system.nix
+		./boot.nix
+		./nix.nix
 	];
 }
