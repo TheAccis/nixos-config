@@ -3,7 +3,8 @@
 let
   lib = pkgs.lib;
   hostnamesList = lib.concatStringsSep ", " meta.hostnames;
-  hostnamesArray = lib.concatStringsSep "'" "'" meta.hostnames;
+  # Правильный путь к исполняемому файлу disko
+  diskoPkg = inputs.disko.packages.${pkgs.system}.disko or inputs.disko.defaultPackage.${pkgs.system};
 in
 ''
   #!/usr/bin/env bash
@@ -18,16 +19,13 @@ in
 
   hostname="$1"
 
-  # Более надежная проверка наличия хоста в списке
   found=0
-  case "$hostname" in
-    ${lib.concatStringsSep "|" (map (h: "'" + h + "'") meta.hostnames)})
+  for h in ${lib.concatStringsSep " " (map (x: "'" + x + "'") meta.hostnames)}; do
+    if [ "$h" = "'$hostname'" ]; then
       found=1
-      ;;
-    *)
-      found=0
-      ;;
-  esac
+      break
+    fi
+  done
 
   if [ $found -ne 1 ]; then
     echo "Error: Hostname '$hostname' not found in flake"
@@ -40,7 +38,7 @@ in
 
   echo "💾 Running disko (partitioning and mounting disks)..."
   sudo nix --extra-experimental-features "nix-command flakes" \
-    run ${inputs.disko.outPath} -- --mode destroy,format,mount --flake "${self}#$hostname"
+    run ${diskoPkg} -- --mode destroy,format,mount --flake "${self}#$hostname"
 
   echo "📦 Installing NixOS system..."
   sudo nixos-install --flake "${self}#$hostname" --no-root-passwd
