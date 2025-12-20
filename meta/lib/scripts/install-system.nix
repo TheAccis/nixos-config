@@ -1,7 +1,7 @@
 { self, inputs, meta, pkgs, ... }:
 let
 	hostnamesList = pkgs.lib.concatStringsSep ", " meta.hostnames;
-	divider = "==================================================";
+	divider = "${divider}===";
 in
 ''
 	set -euo pipefail
@@ -28,18 +28,22 @@ in
 		exit 2
 	fi
 
+	echo "${divider}"
 	echo "* Installing NixOS configuration for host: $hostname"
-	echo "==============================================="
+	echo "${divider}"
+
+	prompt="Warning: All data on this disk will be erased. Continue? (y/n): "
+	read -p "$prompt" res && [[ "$res" == [yY] ]] || exit 1
 
 	echo "* Running disko (partitioning and mounting disks)..."
 	sudo nix --extra-experimental-features "nix-command flakes" \
 		run github:nix-community/disko -- --mode destroy,format,mount --flake "${self}#$hostname" \
-		--quiet
+		> /dev/null
 
 	echo "* Installing NixOS system..."
 	sudo nixos-install --flake "${self}#$hostname" --no-root-passwd
 
-	echo "==============================================="
+	echo "${divider}"
 	echo "* Installation complete!"
 	echo "* Reboot with: sudo reboot"
 ''
