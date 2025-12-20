@@ -6,10 +6,6 @@
     qemu = {
       package = pkgs.qemu_kvm;
       runAsRoot = true;
-      ovmf = {
-        enable = true;
-        # packages = [ pkgs.OVMFFull.fd ]; # Windows-specific: UEFI/SecureBoot
-      };
       # swtpm.enable = true; # Windows-specific: TPM 2.0 emulation
     };
   };
