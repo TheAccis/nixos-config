@@ -37,8 +37,8 @@ in
 
 	echo "* Running disko (partitioning and mounting disks)..."
 	sudo nix --extra-experimental-features "nix-command flakes" \
-		run github:nix-community/disko -- --mode destroy,format,mount --flake "${self}#$hostname" -y \
-		&>/dev/null
+		run github:nix-community/disko -- --mode destroy,format,mount \
+		--flake "${self}#$hostname" --yes-wipe-all-disks &>/dev/null
 
 	echo "* Installing NixOS system..."
 	sudo nixos-install --flake "${self}#$hostname" --no-root-passwd
