@@ -6,4 +6,6 @@
 		./packages.nix
 		./disko.nix
 	];
+
+  virtualisation.qemuGuest.enable = true;
 }
