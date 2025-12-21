@@ -19,13 +19,11 @@
 	 	  inputs.nixpkgs.follows = "nixpkgs";
 	 	};
 
-		nix-flatpak = {
-			url = "github:gmodena/nix-flatpak";
-		};
+		nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-		vscode-extensions = {
-			url = "github:nix-community/nix-vscode-extensions";
-		};
+		vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+
+    nur.url = "github:nix-community/NUR";
 
 		stylix = {
 			url = "github:danth/stylix/release-25.11";
@@ -43,7 +41,7 @@
 		};
 	};
 
-	outputs = { self, nixpkgs, home-manager, ... }@inputs:
+	outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
 	let
 		meta = import ./meta {
 			pkgs = nixpkgs.legacyPackages."x86_64-linux";
@@ -53,13 +51,18 @@
 
     pkgs = nixpkgs.legacyPackages."${meta.system}";
 
+    nur-pkgs = import nur {
+      inherit pkgs;
+      nurpkgs = pkgs;
+    };
+
     install-script = import ./meta/lib/scripts/install-system.nix {
       inherit self inputs meta pkgs;
     };
 
 		makeSystem = hostname: nixpkgs.lib.nixosSystem {
 			system = meta.system;
-			specialArgs = { inherit hostname inputs meta; };
+			specialArgs = { inherit hostname nur-pkgs inputs meta; };
 			modules = [ ./hosts/${hostname}/configuration.nix ];
 		};
 	in

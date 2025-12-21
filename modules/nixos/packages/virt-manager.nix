@@ -25,7 +25,5 @@
 
   services.spice-vdagentd.enable = true;
 
-  networking.firewall.checkReversePath = false;
-
   users.users."${meta.user}".extraGroups = [ "libvirtd" "kvm" ];
 }

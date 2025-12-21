@@ -1,4 +1,4 @@
-{ config, inputs, meta, pkgs, lib, ... }: 
+{ nur-pkgs, config, inputs, meta, pkgs, lib, ... }: 
 {
 	imports = [ inputs.home-manager.nixosModules.default ];
 
@@ -10,6 +10,7 @@
 		extraSpecialArgs = {
 			inherit meta;
 			vscode-extensions = inputs.vscode-extensions.extensions.${meta.system};
+      firefox-addons = nur-pkgs.repos.rycee.firefox-addons;
 
 			modules = {
 				caelestia-shell = inputs.caelestia-shell;

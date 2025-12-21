@@ -1,3 +1,4 @@
+{ firefox-addons, ... }:
 let
 	install = url: {
 		install_url = url;
@@ -12,19 +13,19 @@ in
 	programs.zen-browser.enable = true;
 	
 	programs.zen-browser.policies = {
-		ExtensionSettings = {
-			"langpack-ru@firefox.mozilla.org" = install
-				"addons.mozilla.org";
+		#ExtensionSettings = {
+		#	"langpack-ru@firefox.mozilla.org" = install
+		#		"addons.mozilla.org";
 
-			"uBlock0@raymondhill.net" = install
-				"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-				
-			"{446900e4-71c2-419f-a6a7-df9c091e268b}" = install
-				"https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-				
-			"addon@darkreader.org" = install
-				"https://addons.mozilla.org/en-US/firefox/addon/darkreader/latest.xpi";
-		};
+		#	"uBlock0@raymondhill.net" = install
+		#		"https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+		#		
+		#	"{446900e4-71c2-419f-a6a7-df9c091e268b}" = install
+		#		"https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+		#		
+		#	"addon@darkreader.org" = install
+		#		"https://addons.mozilla.org/en-US/firefox/addon/darkreader/latest.xpi";
+		#};
 
 		RequestedLocales = ["ru"];
 		
@@ -58,26 +59,32 @@ in
 			"intl.accept_languages" = "ru-ru, ru, en-us, en";
 			"intl.locale.requested" = "ru";
 		};
+
+   	extensions.packages = with firefox-addons; [
+      ublock-origin
+      bitwarden
+      darkreader
+    ];
 	};
 
-  xdg.desktopEntries."zen-twilight" = {
-    name = "Zen Browser";
-    genericName = "Web Browser";
-    exec = "zen-twilight --name zen %U";
-    icon = "zen-twilight";
-    terminal = false;
-    categories = [ "Network" "WebBrowser" ];
-    mimeType = [
-      "text/html"
-      "text/xml"
-      "application/xhtml+xml"
-      "application/vnd.mozilla.xul+xml"
-      "x-scheme-handler/http"
-      "x-scheme-handler/https"
-    ];
-    settings = {
-      StartupNotify = "true";
-      StartupWMClass = "zen";
-    };
+	xdg.desktopEntries."zen-twilight" = {
+		name = "Zen Browser";
+		genericName = "Web Browser";
+		exec = "zen-twilight --name zen %U";
+		icon = "zen-twilight";
+		terminal = false;
+		categories = [ "Network" "WebBrowser" ];
+		mimeType = [
+			"text/html"
+			"text/xml"
+			"application/xhtml+xml"
+			"application/vnd.mozilla.xul+xml"
+			"x-scheme-handler/http"
+			"x-scheme-handler/https"
+		];
+		settings = {
+			StartupNotify = "true";
+			StartupWMClass = "zen";
+		};
 	};
 }
