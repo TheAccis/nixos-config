@@ -2,7 +2,6 @@
 	imports = [
 		./hardware
 		./security
-		./services
     ./packages
 		./desktop
 		./system

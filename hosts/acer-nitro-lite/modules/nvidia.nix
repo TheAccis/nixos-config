@@ -19,7 +19,6 @@
 		open = false;
 		modesetting.enable = true;
 
-		#package = config.boot.kernelPackages.nvidia_x11_legacy535;
 		package = config.boot.kernelPackages.nvidiaPackages.stable;
 		nvidiaSettings = true;
 
@@ -35,14 +34,13 @@
 		};
 	};
 
-	# boot.kernelModules = [
-	# 	"nvidia"
-	# 	"nvidia_modeset"
-	# 	"nvidia_uvm"
-	# 	"nvidia_drm"
-	# ];
-
 	boot.kernelParams = [
 		"nvidia-drm.modeset=1"
+		
+		"nvidia.NVreg_DynamicPowerManagement=0x02" # Динамическое управление питанием
+		"nvidia.NVreg_EnableGpuFirmware=1"
+		"i915.enable_psr=1" # Panel Self Refresh для Intel
+		"i915.enable_fbc=1" # Frame Buffer Compression
+		"i915.enable_guc=2" # GuC для лучшего энергосбережения
 	];
 }
