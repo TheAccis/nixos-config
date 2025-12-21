@@ -1,0 +1,3 @@
+{
+  services.firewall.enable = false;
+}
