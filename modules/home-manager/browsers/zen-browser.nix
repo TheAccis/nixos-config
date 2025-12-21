@@ -64,6 +64,7 @@ in
       ublock-origin
       bitwarden
       darkreader
+      #tabdiscard
     ];
 	};
 
