@@ -1,3 +1,3 @@
 {
-  services.firewall.enable = false;
+  networking.firewall.enable = false;
 }

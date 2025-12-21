@@ -4,5 +4,6 @@
 		./hyprland.nix
 		./services.nix
 		./users.nix
+    ./java.nix
 	];
 }
