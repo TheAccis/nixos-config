@@ -7,6 +7,7 @@
 		pwvucontrol
 		fragments
 		resources
+    usbimager
 		#pinta
 		#mpv
 
