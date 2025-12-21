@@ -1,18 +1,58 @@
-{ config, meta, ... }:
+{ config, meta, pkgs, ... }:
 let
-	package-name = "ch.tlaun.TL";
-	config-path = ".var/app/${package-name}/config/tl.properties";
-in 
+	path = "${config.home.homeDirectory}/${meta.dirs.games}/Legacy Launcher";
+	bootstrap = "${path}/bootstrap.jar";
+	launcher = "${path}/launcher.jar";
+in
 {
-	services.flatpak = {
-		packages = [ package-name ];
+	environment.systemPackages = [
+		pkgs.writeShellScriptBin "legacy-launcher" ''
+			mkdir -p ${path}
 
-		overrides."${package-name}".Environment = {
-			TL_BOOTSTRAP_OPTIONS = "-Dtl.useForce"; 
-		};
-	};
+			if [ ! -f "${bootstrap}" ]; then
+				echo "Downloading launcher..."
+				${pkgs.curl}/bin/curl -L "${jarUrl}" -o "${bootstrap}"
+				cp ${bootstrap} ${launcher}
+			fi
 
-	meta.lib.home.mutable-file."${config-path}".text = ''
+			cd ${path}
+
+			export _JAVA_OPTIONS="-Duser.home=${path}"
+			export _JAVA_AWT_WM_NONREPARENTING=1
+			java -jar "${bootstrap}"
+		''
+
+		pkgs.makeDesktopItem {
+			name = "legacy-launcher";
+			desktopName = "Legacy Launcher";
+			exec = "legacy-launcher";
+			icon = "minecraft";
+			categories = [ "Game" ];
+			terminal = false;
+		}
+	];
+
+	home.file."${path}/tl.args".text = ''
+--packageMode
+portable
+
+--targetJar
+${launcher}
+
+--targetLibFolder
+${path}/libraries
+
+--
+
+--settings
+${path}/tl.properties
+
+--directory
+${path}
+	'';
+
+	# meta.lib.home.mutable-file."${config-path}".text = ''
+	home.file."${config-path}".text = ''
 		bootstrap.switchToBeta=false
 		client=2523222e-dde8-4715-92e5-bd963e2b54a4
 		connection.ssl=true
