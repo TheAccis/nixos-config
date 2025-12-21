@@ -27,7 +27,7 @@
 			".." = "cd ..";
 		};
 
-		history.size = 256;
+		history.size = 1024;
 		history.path = "${config.xdg.dataHome}/zsh/history";
 
 		initContent = ''
