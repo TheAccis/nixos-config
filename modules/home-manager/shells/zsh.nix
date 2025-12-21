@@ -32,9 +32,9 @@
 
 		initContent = ''
 			# Start UWSM session automatically
-			if command -v uwsm > /dev/null && uwsm check may-start; then
-				exec systemd-cat -t uwsm_start uwsm start hyprland-uwsm.desktop
-			fi
+			# if command -v uwsm > /dev/null && uwsm check may-start; then
+			# 	exec systemd-cat -t uwsm_start uwsm start hyprland-uwsm.desktop
+			# fi
 
 			# FIXME: Fix console not working copy/paste sometimes
 			stty -ixon # Remove Ctrl+C for send SIGINT

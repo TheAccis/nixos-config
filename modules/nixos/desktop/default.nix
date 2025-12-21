@@ -1,7 +1,8 @@
+{ meta, ... }:
 {
 	imports = [
 		./environment.nix
-		./hyprland.nix
+		./{meta.wm}.nix
 		./services.nix
 		./users.nix
     ./java.nix

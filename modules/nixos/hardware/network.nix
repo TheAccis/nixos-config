@@ -7,4 +7,7 @@
 		enable = true;
 		wifi.powersave = false;
 	};
+
+  systemd.services."resolvconf".enable = false;
+  services.resolved.enable = true;
 }

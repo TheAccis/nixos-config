@@ -3,7 +3,8 @@ rec {
 	config-path = "/home/${user}/nixos-config";
 
 	# Available wm: hyprland
-	wm = "hyprland";
+	wm.name = "hyprland";
+  wm.command = "exec systemd-cat -t uwsm_start uwsm start hyprland-uwsm.desktop";
 
 	locale = {
 		default = "ru_RU";
