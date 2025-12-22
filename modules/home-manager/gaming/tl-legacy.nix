@@ -1,3 +1,4 @@
+# FIXME: Minecraft not launching from launcher
 { config, meta, pkgs, ... }:
 let
   path = "${config.home.homeDirectory}/${meta.dirs.games}/Legacy-Launcher";

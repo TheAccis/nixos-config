@@ -15,7 +15,7 @@
     ./apps
     ./dev
 
-    ./wm/${meta.wm}
+    ./wm/${meta.wm.name}
 
     ./packages.nix
   ];

@@ -1,4 +1,4 @@
-{ meta, pkgs, ... }:
+{ meta, pkgs, lib, ... }:
 {
 	environment.systemPackages = with pkgs; [
 		virt-viewer
@@ -25,12 +25,13 @@
 
 	users.users."${meta.user}".extraGroups = [ "libvirtd" "kvm" ];
 
+  systemd.services.libvirtd-config.wantedBy = lib.mkForce [];
+
 	systemd.services.libvirtd.wantedBy = pkgs.lib.mkForce [];
 	systemd.sockets.libvirtd.wantedBy = [ "sockets.target" ];
 
-  systemd.services.libvirtd.serviceConfig.ExitType = "idle-timeout";
-  systemd.services.libvirtd.serviceConfig.ExecStart = [ 
-    "" 
-    "${pkgs.libvirt}/bin/libvirtd --timeout 120" 
-  ];
+  systemd.services.libvirtd.serviceConfig = {
+    ExitType = "idle-timeout";
+    ExecStart = [ "${pkgs.libvirt}/bin/libvirtd --timeout 120" ];
+  };
 }
