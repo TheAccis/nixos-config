@@ -1,6 +1,7 @@
 {
 	imports = [
-		./qt.nix
+    ./wallpapers.nix
 		./stylix.nix
+		./qt.nix
 	];
 }

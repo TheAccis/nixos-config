@@ -60,12 +60,31 @@
 			active_opacity = 1.0;
 			inactive_opacity = 1.0;
 
-			shadow.enabled = false;
+			dim_inactive = true;
+			dim_strength = 0.5;
+
+			shadow.enabled = true;
 
 			blur.enabled = false;
 		};
 
-		animations.enabled = true;
+		animations = {
+			enabled = true;
+		
+			bezier = [
+				"overshoot, 0.05, 0.9, 0.1, 1.1"
+				"smooth, 0.16, 1.0, 0.3, 1.0"
+				"spring, 0.64, 0.0, 0.36, 1.0"
+				"linear, 0.0, 0.0, 1.0, 1.0"
+			];
+		
+			animation = [
+				"windows, 1, 8, overshoot, popin 85%"
+				"workspaces, 1, 8, smooth, slide"
+				"fade, 1, 8, smooth"
+				"border, 1, 6, spring"
+			];
+		};
 
 		input = {
 			kb_layout = "us,ru";

@@ -12,6 +12,7 @@
 		#mpv
 
 		# CLI utils
+    linux-wallpaperengine
 		brightnessctl
 		wl-clipboard
 		vulkan-tools
