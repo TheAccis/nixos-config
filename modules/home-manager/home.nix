@@ -7,17 +7,12 @@
 
     meta.lib-modules.home
 
-    ./browsers
+    ./packages
     ./desktop
-    ./gaming
     ./shells
     ./style
-    ./apps
-    ./dev
 
     ./wm/${meta.wm.name}
-
-    ./packages.nix
   ];
 
   home = {

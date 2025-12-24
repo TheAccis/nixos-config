@@ -28,9 +28,9 @@
 		};
 
 		archiver = {
-			name = "XArchiver";
-			filename = "xarchiver";
-			command = "xarchiver";
+			name = "Engrampa";
+			filename = "engrampa";
+			command = "engrampa";
 		};
 
 		torrent-client = {

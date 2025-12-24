@@ -10,8 +10,8 @@
 		enable32Bit = true;
 		extraPackages = with pkgs; [
 			nvidia-vaapi-driver
-			libva-vdpau-driver
-			libvdpau-va-gl
+			libva
+			libva-utils
 		];
 	};
 
@@ -29,8 +29,8 @@
 
 		prime = {
 			offload.enable = true;
-      offload.enableOffloadCmd = true;
-      
+			offload.enableOffloadCmd = true;
+			
 			intelBusId = "PCI:0:2:0";
 			nvidiaBusId = "PCI:1:0:0";
 		};
@@ -38,10 +38,6 @@
 
 	boot.kernelParams = [
 		"nvidia-drm.modeset=1"
-		
 		"nvidia.NVreg_EnableGpuFirmware=1"
-		"i915.enable_psr=1" # Panel Self Refresh для Intel
-		"i915.enable_fbc=1" # Frame Buffer Compression
-		"i915.enable_guc=2" # GuC для лучшего энергосбережения
 	];
 }

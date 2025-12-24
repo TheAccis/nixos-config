@@ -7,9 +7,7 @@
 				xfce.thunar-volman
 			];
 		})
-
-		# FIXME: xarchiver not working in thunar
-		xarchiver
+		mate.engrampa
 	];
 
 	xdg.desktopEntries."thunar-bulk-rename" = {
@@ -24,6 +22,11 @@
 
 	xdg.desktopEntries."thunar-volman-settings" = {
 		name = "Thunar Volman Settings";
+		noDisplay = true;
+	};
+
+	xdg.desktopEntries."engrampa" = {
+		name = "Engrampa";
 		noDisplay = true;
 	};
 

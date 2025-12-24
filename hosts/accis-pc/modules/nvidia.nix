@@ -19,7 +19,6 @@
 		open = false;
 		modesetting.enable = true;
 		
-		#package = config.boot.kernelPackages.nvidia_x11_legacy535;
 		package = config.boot.kernelPackages.nvidiaPackages.stable;
 		nvidiaSettings = true;
 
@@ -29,9 +28,9 @@
 		};
 	};
 
-  boot.kernelParams = [
-    "nvidia-drm.modeset=1"
-    "nvidia.NVreg_EnableGpuFirmware=1"
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-  ];
+	boot.kernelParams = [
+		"nvidia-drm.modeset=1"
+		"nvidia.NVreg_EnableGpuFirmware=1"
+		"nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+	];
 }
