@@ -1,5 +1,11 @@
 { config, ... }:
 {
+	programs.zsh.initContent = ''
+		if command -v uwsm > /dev/null && uwsm check may-start; then
+			exec systemd-cat -t uwsm_start uwsm start hyprland-uwsm.desktop
+		fi
+	'';
+
 	wayland.windowManager.hyprland = {
 		enable = true;
 		systemd.enable = true;
@@ -16,23 +22,22 @@
 			"XDG_SESSION_DESKTOP,Hyprland"
 			"QT_QPA_PLATFORM,wayland"
 
-			# TODO: This code not working
 			"XCURSOR_THEME,${config.stylix.cursor.name}"
 			"XCURSOR_SIZE,${toString config.stylix.cursor.size}"
 			"HYPRCURSOR_THEME,${config.stylix.cursor.name}"
 			"HYPRCURSOR_SIZE,${toString config.stylix.cursor.size}"
 		];
 
-		monitor = ",highres,auto,1.0666667";
+		monitor = ",highres,auto,1.0";
 
 		xwayland.force_zero_scaling = true;
+
+		cursor.no_hardware_cursors = true;
 
 		exec-once = [
 			"wl-paste --type text --watch cliphist store"
 			"wl-paste --type image --watch cliphist store"
 		];
-
-		misc.vrr = false;
 
 		general = {
 			gaps_in = 10;
@@ -40,7 +45,7 @@
 
 			border_size = 3;
 
-			"col.active_border" = "rgba(d65d0eff) rgba(98971aff) 45deg";
+			"col.active_border" = "rgba(d65d0eff) rgba(701a98ff) 45deg";
 			"col.inactive_border" = "rgba(3c3836ff)";
 
 			resize_on_border = true;
@@ -53,11 +58,11 @@
 			rounding = 25;
 
 			active_opacity = 1.0;
-			inactive_opacity = 0.8;
+			inactive_opacity = 1.0;
 
-			shadow.enabled = true;
+			shadow.enabled = false;
 
-			blur.enabled = true;
+			blur.enabled = false;
 		};
 
 		animations.enabled = true;

@@ -22,9 +22,9 @@
 		users.${meta.user} = import ../home-manager/home.nix;
 	};
 
-  systemd.services."home-manager-${meta.user}" = {
-    wantedBy = lib.mkForce [ ];
-    before = lib.mkForce [ ];
-    after = [ "graphical-desktop.target" ];
-  };
+  # systemd.services."home-manager-${meta.user}" = {
+  #   wantedBy = lib.mkForce [ ];
+  #   before = lib.mkForce [ ];
+  #   after = [ "graphical-desktop.target" ];
+  # };
 }

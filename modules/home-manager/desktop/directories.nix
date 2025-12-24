@@ -20,11 +20,12 @@ in
 
 		extraConfig = {
 			XDG_SCREENSHOTS_DIR = "${home}/${meta.dirs.screenshots}";
+			XDG_PROJECTS_DIR = "${home}/${meta.dirs.projects}";
 		};
 	};
 	
 	# Create custom folders
-	systemd.user.tmpfiles.rules = map (dir: 
+	systemd.user.tmpfiles.rules = map (dir:
 		"d ${home}/${dir} 0755 - - -"
 	) meta.dirs.custom;
 }

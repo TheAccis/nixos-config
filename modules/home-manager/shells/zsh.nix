@@ -30,14 +30,8 @@
 		history.size = 1024;
 		history.path = "${config.xdg.dataHome}/zsh/history";
 
-    # TODO: Remove starting UWSM from zsh init content.
 		initContent = ''
-			# Start UWSM session automatically
-			if command -v uwsm > /dev/null && uwsm check may-start; then
-				exec systemd-cat -t uwsm_start uwsm start hyprland-uwsm.desktop
-			fi
-
-			# FIXME: Fix console not working copy/paste sometimes
+			# FIXME: Fix console not working in rus keyboard
 			stty -ixon # Remove Ctrl+C for send SIGINT
 
 			nix-pkg-size() { nix path-info --closure-size --human-readable $(readlink -f $(which $1)) }

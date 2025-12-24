@@ -10,8 +10,8 @@
 		enable32Bit = true;
 		extraPackages = with pkgs; [
 			nvidia-vaapi-driver
-			libva-vdpau-driver
-			libvdpau-va-gl
+			libva
+			libva-utils
 		];
 	};
 
@@ -29,8 +29,9 @@
 		};
 	};
 
-	boot.kernelParams = [
-		"nvidia-drm.modeset=1"
-		"nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-	];
+  boot.kernelParams = [
+    "nvidia-drm.modeset=1"
+    "nvidia.NVreg_EnableGpuFirmware=1"
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+  ];
 }

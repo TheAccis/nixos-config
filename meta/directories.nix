@@ -5,6 +5,7 @@
 		documents = "Документы";
 		download = "Загрузки";
 		templates = "Шаблоны";
+    projects = "${documents}/Проекты";
 		games = "Игры";
 
 		# User directories - media
@@ -22,6 +23,7 @@
 			screenshots
 			wallpapers
 			torrents
+      projects
 			media
 			games
 		];

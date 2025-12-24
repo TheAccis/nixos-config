@@ -1,6 +1,6 @@
 {
 	imports = [
-    # ./policy-kit.nix
+    ./policy-kit.nix
 		./sudo.nix
 	];
 }
