@@ -1,13 +1,13 @@
 {
-  programs.zsh.shellAliases = {
-    nix-tree = "nix run nixpkgs#nix-tree";
-  };
+	programs.zsh.shellAliases = {
+		nix-tree = "nix run nixpkgs#nix-tree";
+	};
 
-  xdg.desktopEntries."usb-imager-temporary" = {
-    name = "USB Imager (Temp)";
-    exec = "nix run nixpkgs#usbimager";
-    icon = "drive-removable-media";
-    terminal = false;
-    categories = [ "Utility" ];
-  };
+	xdg.desktopEntries."usb-imager-temporary" = {
+		name = "USB Imager (Temp)";
+		exec = "\"nix run nixpkgs#usbimager\""; 
+		icon = "drive-removable-media";
+		terminal = false;
+		categories = [ "Utility" ];
+	};
 }

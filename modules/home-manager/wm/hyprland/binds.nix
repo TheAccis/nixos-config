@@ -12,7 +12,7 @@
 			"$main-button,       J, togglesplit,"
 			"$main-button,       E, exec, ${meta.apps.file-manager.command}"
 			"$main-button,       L, exec, loginctl lock-session"
-			"$main-button,       P, exec, hyprpicker -an"
+			# "$main-button,       P, exec, hyprpicker -an"
 			"$main-button,       N, exec, swaync-client -t"
 			", Print, exec, grimblast --notify --freeze copysave area"
 

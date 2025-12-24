@@ -4,7 +4,6 @@ rec {
 
 	# Available wm: hyprland
 	wm.name = "hyprland";
-  wm.command = "systemd-cat -t uwsm_start uwsm start hyprland-uwsm.desktop";
 
 	locale = {
 		default = "ru_RU";
