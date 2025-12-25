@@ -5,7 +5,7 @@
 
 	xdg.desktopEntries."usb-imager-temporary" = {
 		name = "USB Imager (Temp)";
-		exec = "\"nix run nixpkgs#usbimager\""; 
+		exec = "sh -c \"nix run nixpkgs#usbimager\""; 
 		icon = "drive-removable-media";
 		terminal = false;
 		categories = [ "Utility" ];

@@ -5,6 +5,7 @@
 		# Desktop apps
     (pkgs.bottles.override { removeWarningPopup = true; })
 		telegram-desktop
+    prismlauncher
 		pwvucontrol
 		fragments
 		resources
@@ -20,7 +21,6 @@
 		killall
 		p7zip
 		tree
-		wget
 		fd
 
 		libnotify

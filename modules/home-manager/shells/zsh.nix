@@ -1,4 +1,4 @@
-{ config, meta, ... }:
+{ osConfig, config, meta, ... }:
 {
 	programs.zsh = {
 		enable = true;
@@ -16,10 +16,17 @@
 				nix-store --optimise
 			'';
 
-      home-packages = "nix eval ${meta.config-path}#nixosConfigurations.$(hostname).config.home-manager.users.$(whoami).home.packages --json | jq -r '.[]' | sed -E 's|/nix/store/[a-z0-9]{32}-||' | sort -u";
+			show-packages = ''
+				echo "-- System packages --"
+				echo "${builtins.concatStringsSep "\n" (map (p: p.pname or p.name) osConfig.environment.systemPackages)}"
+
+				echo "-- Home packages --"
+				echo "${builtins.concatStringsSep "\n" (map (p: p.pname or p.name) config.home.packages)}"
+			'';
 
 			microfetch = "microfetch && echo";
 			se = "sudoedit";
+			c = "clear";
 
 			blueon = "rfkill unblock bluetooth";
 			blueoff = "rfkill block bluetooth";
@@ -31,8 +38,9 @@
 		history.path = "${config.xdg.dataHome}/zsh/history";
 
 		initContent = ''
-			# FIXME: Fix console not working in rus keyboard
-			stty -ixon # Remove Ctrl+C for send SIGINT
+         stty sane
+         stty intr ^C
+         stty -ixon
 
 			nix-pkg-size() { nix path-info --closure-size --human-readable $(readlink -f $(which $1)) }
 
