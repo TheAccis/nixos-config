@@ -5,5 +5,6 @@
     ./firewall.nix
 		./locale.nix
 		./zram.nix
+    ./tmp.nix
 	];
 }

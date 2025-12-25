@@ -1,9 +1,10 @@
 { meta, pkgs, ... }:
 {
-	programs.zsh.enable = true;
+	programs."${meta.apps.shell}".enable = true;
 
-	users.defaultUserShell = pkgs.zsh;
-
+	users.defaultUserShell = pkgs."${meta.apps.shell}";
+	users.mutableUsers = false;
+	
 	users.users = {
 		${meta.user} = {
 			hashedPassword = "$6$FaEVp7cERlE479aZ$NkjXrEekaLJQq4KGtPIjCKSQfpGXApMhJun92F3VDxX76C1t1aoMbzyQ2lxVXDtbdkB2eo07/C2MfI4t.2pSa.";

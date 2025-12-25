@@ -1,6 +1,5 @@
 {
-	security.sudo = {
-		enable = true;
-		wheelNeedsPassword = true;
-	};
+  security.sudo.enable = false;
+  security.sudo-rs.enable = true;
+  security.sudo-rs.wheelNeedsPassword = true;
 }

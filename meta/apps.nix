@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 {
 	apps = {
+		shell = "zsh";
+
 		browser = {
 			name = "Zen";
 			filename = "zen-beta";

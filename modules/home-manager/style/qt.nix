@@ -2,6 +2,8 @@
 {
 	home.packages = with pkgs; [
 		papirus-icon-theme
+		adwaita-qt
+		adwaita-qt6
 	];
 	
 	qt = {
@@ -13,7 +15,7 @@
 		};
 	};
 
-	home.sessionVariables = {
-		QT_STYLE_OVERRIDE = "adwaita-dark";
-	};
+	#home.sessionVariables = {
+	#	QT_STYLE_OVERRIDE = "adwaita-dark";
+	#};
 }

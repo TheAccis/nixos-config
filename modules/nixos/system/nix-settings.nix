@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 {
+	nixpkgs.config.allowUnfree = true;
+
+  nix.channel.enable = false;
+
 	nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+
 		max-substitution-jobs = 20;
 		http-connections = 50;
 
@@ -24,7 +30,6 @@
 	};
 
 	nix.extraOptions = ''
-		# Риск: Может вызвать проблемы, если вам нужна полная история git-коммитов nixpkgs
 		eval-cache = true
 	'';
 }

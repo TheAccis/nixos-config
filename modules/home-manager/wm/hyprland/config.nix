@@ -1,6 +1,6 @@
 { config, ... }:
 {
-	programs.zsh.initContent = ''
+	programs."${meta.apps.shell}".initContent = ''
 		if command -v uwsm > /dev/null && uwsm check may-start; then
 			exec systemd-cat -t uwsm_start uwsm start hyprland-uwsm.desktop
 		fi
@@ -61,7 +61,7 @@
 			inactive_opacity = 1.0;
 
 			dim_inactive = true;
-			dim_strength = 0.5;
+			dim_strength = 0.7;
 
 			shadow.enabled = true;
 

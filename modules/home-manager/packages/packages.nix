@@ -5,10 +5,10 @@
 		# Desktop apps
     (pkgs.bottles.override { removeWarningPopup = true; })
 		telegram-desktop
-    prismlauncher
 		pwvucontrol
 		fragments
 		resources
+    obsidian
 		#pinta
 		#mpv
 
@@ -17,11 +17,9 @@
 		microfetch
 		grimblast
 		cliphist
-		ripgrep
 		killall
 		p7zip
 		tree
-		fd
 
 		libnotify
 	];

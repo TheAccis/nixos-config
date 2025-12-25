@@ -10,11 +10,7 @@
 			os-rebuild = "nh os switch";
 			os-rebuild-test = "nh os test";
 			os-update = "nh os switch --update";
-			os-clean = ''
-				sudo nix-collect-garbage -d --quiet
-				echo 'Hard-linking files...'
-				nix-store --optimise
-			'';
+			os-clean = "sudo nix-collect-garbage -d --quiet";
 
 			show-packages = ''
 				echo "-- System packages --"
@@ -38,9 +34,9 @@
 		history.path = "${config.xdg.dataHome}/zsh/history";
 
 		initContent = ''
-         stty sane
-         stty intr ^C
-         stty -ixon
+			stty sane
+			stty intr ^C
+			stty -ixon
 
 			nix-pkg-size() { nix path-info --closure-size --human-readable $(readlink -f $(which $1)) }
 

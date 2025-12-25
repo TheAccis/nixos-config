@@ -1,11 +1,17 @@
 {
-	boot.loader = {
-		systemd-boot.enable = true;
-		efi.canTouchEfiVariables = true;
+	boot = {
+		loader = {
+			systemd-boot.enable = true;
+			efi.canTouchEfiVariables = true;
+		};
+
+		initrd.compressor = "zstd";
+
+		consoleLogLevel = 0;
+		kernelParams = [
+			"udev.log_level=3"
+			"nowatchdog"
+			"quiet"
+		];
 	};
-
-  boot.initrd.compressor = "zstd";
-
-  boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "quiet" "udev.log_level=3" ];
 }

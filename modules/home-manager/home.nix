@@ -9,9 +9,9 @@
 
     ./packages
     ./desktop
-    ./shells
     ./style
 
+    ./shells/${meta.apps.shell}
     ./wm/${meta.wm.name}
   ];
 

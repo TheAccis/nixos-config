@@ -30,9 +30,9 @@
 		};
 
 		cursor = {
-			name = "google-cursor";
-			size = 16;
-			package = pkgs.google-cursor;
+			package = pkgs.bibata-cursors;
+			name = "Bibata-Modern-Classic";
+			size = 24;
 		};
 
 		fonts = {
@@ -52,11 +52,6 @@
 				name = "Noto Serif";
 				package = pkgs.noto-fonts;
 			};
-
-			#sizes = {
-			#  terminal = 13;
-			#  applications = 11;
-			#};
 		};
 
 		iconTheme = {

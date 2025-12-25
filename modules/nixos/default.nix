@@ -10,6 +10,5 @@
 		./kernel.nix
 		./system.nix
 		./boot.nix
-		./nix.nix
 	];
 }
