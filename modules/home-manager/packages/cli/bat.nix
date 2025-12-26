@@ -2,7 +2,6 @@
 {
 	programs.bat.enable = true;
 	programs.bat.config = {
-		theme = "Dracula";
 		italic-text = "always";
 		style = "numbers,header";
 	};

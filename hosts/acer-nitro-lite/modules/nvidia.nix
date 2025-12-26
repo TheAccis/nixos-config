@@ -5,6 +5,8 @@
 	services.xserver.enable = false;
 	services.xserver.videoDrivers = [ "nvidia" ];
 
+	boot.blacklistedKernelModules = [ "nouveau" "nova_core" ];
+
 	hardware.graphics = {
 		enable = true;
 		enable32Bit = true;
@@ -13,6 +15,13 @@
 			libva
 			libva-utils
 		];
+	};
+
+	environment.variables = {
+		LIBVA_DRIVER_NAME = "nvidia";
+		GBM_BACKEND = "nvidia-drm";
+		__GLX_VENDOR_LIBRARY_NAME = "nvidia";
+		WLR_NO_HARDWARE_CURSORS = "1";
 	};
 
 	hardware.nvidia = {

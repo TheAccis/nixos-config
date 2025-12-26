@@ -2,8 +2,8 @@
 {
 	imports = [ inputs.disko.nixosModules.disko ];
 
+  # disko.devices.disk.main.device defined in host configs
   disko.devices.disk.main = {
-		device = "/dev/nvme0n1";
 		type = "disk";
 
 		content.type = "gpt";

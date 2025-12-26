@@ -1,11 +1,14 @@
 { config, lib, pkgs, ... }:
 {
 	dirs = rec {
+		# Home path
+		home = "";
+
 		# User directories
 		documents = "Документы";
 		download = "Загрузки";
 		templates = "Шаблоны";
-    projects = "${documents}/Проекты";
+		projects = "${documents}/Проекты";
 		games = "Игры";
 
 		# User directories - media
@@ -23,7 +26,7 @@
 			screenshots
 			wallpapers
 			torrents
-      projects
+			projects
 			media
 			games
 		];

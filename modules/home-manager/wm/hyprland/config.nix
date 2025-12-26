@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, meta, ... }:
 {
 	programs."${meta.apps.shell}".initContent = ''
 		if command -v uwsm > /dev/null && uwsm check may-start; then

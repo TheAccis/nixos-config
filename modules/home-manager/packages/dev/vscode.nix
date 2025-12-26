@@ -14,14 +14,12 @@
 				ms-python.python # Python
 
 				# Tools
-				prettier.prettier-vscode # Prettier
 				gruntfuggly.todo-tree # Todo tree
 			];
 
 			userSettings = {
 				"security.workspace.trust.untrustedFiles" = "open";
 
-				"editor.defaultFormatter" = "prettier.prettier-vscode";
 				"editor.detectIndentation" = false;
 				"editor.insertSpaces" = false;
 				"editor.fontSize" = 18;

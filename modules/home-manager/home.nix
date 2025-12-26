@@ -11,7 +11,7 @@
     ./desktop
     ./style
 
-    ./shells/${meta.apps.shell}
+    ./shells/${meta.apps.shell}.nix
     ./wm/${meta.wm.name}
   ];
 
