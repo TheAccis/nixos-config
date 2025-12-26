@@ -1,9 +1,6 @@
-{ inputs, ... }:
 {
-	imports = [ inputs.disko.nixosModules.disko ];
-
-  # disko.devices.disk.main.device defined in host configs
-  disko.devices.disk.main = {
+	# disko.devices.disk.main.device defined in host configs
+	disko.devices.disk.main = {
 		type = "disk";
 
 		content.type = "gpt";
@@ -36,6 +33,10 @@
 					};
 					"/nix" = {
 						mountpoint = "/nix";
+						mountOptions = [ "compress=zstd:1" "noatime" ];
+					};
+					"log" = {
+						mountpoint = "/var/log";
 						mountOptions = [ "compress=zstd" "noatime" ];
 					};
 				};

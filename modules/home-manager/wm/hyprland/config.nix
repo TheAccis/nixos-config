@@ -61,7 +61,7 @@
 			inactive_opacity = 1.0;
 
 			dim_inactive = true;
-			dim_strength = 0.7;
+			dim_strength = 0.3;
 
 			shadow.enabled = true;
 

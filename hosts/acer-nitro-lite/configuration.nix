@@ -1,7 +1,5 @@
 {
 	imports = [
-    inputs.disko.nixosModules.disko
-
 		../../modules/nixos
 		./modules
 
