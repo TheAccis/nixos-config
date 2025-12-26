@@ -37,6 +37,11 @@
 			url = "github:caelestia-dots/shell";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+
+		quickshell = {
+			url = "github:outfoxxed/quickshell";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 	};
 
 	outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:

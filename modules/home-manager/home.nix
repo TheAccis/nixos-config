@@ -1,6 +1,7 @@
 { modules, pkgs, meta, lib, ... }: 
 {
   imports = [
+    modules.quickshell.packages."${meta.system}".default
     modules.caelestia-shell.homeManagerModules.default
     modules.zen-browser.homeModules.twilight
     modules.stylix.homeModules.stylix
