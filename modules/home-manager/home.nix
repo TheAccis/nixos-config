@@ -1,7 +1,6 @@
 { modules, pkgs, meta, lib, ... }: 
 {
   imports = [
-    modules.quickshell.packages."${meta.system}".default
     modules.caelestia-shell.homeManagerModules.default
     modules.zen-browser.homeModules.twilight
     modules.stylix.homeModules.stylix
@@ -18,7 +17,7 @@
 
   home = {
     username = meta.user;
-    homeDirectory = "/home/${meta.user}";
+    homeDirectory = meta.home;
     stateVersion = meta.version;
   };
 }

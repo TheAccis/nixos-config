@@ -12,6 +12,12 @@
 			os-update = "nh os switch --update";
 			os-clean = "sudo nix-collect-garbage -d --quiet";
 
+			boot-analyze = ''
+				systemd-analyze
+				systemd-analyze blame
+				systemd-analyze critical-chain
+			'';
+
 			show-packages = ''
 				echo "-- System packages --"
 				echo "${builtins.concatStringsSep "\n" (map (p: p.pname or p.name) osConfig.environment.systemPackages)}"

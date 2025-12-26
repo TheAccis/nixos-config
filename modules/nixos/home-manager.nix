@@ -15,7 +15,6 @@
 			modules = {
 				caelestia-shell = inputs.caelestia-shell;
 				zen-browser = inputs.zen-browser;
-				quickshell = inputs.quickshell;
 				stylix = inputs.stylix;
 			};
 		};

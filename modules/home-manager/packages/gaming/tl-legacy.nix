@@ -1,7 +1,7 @@
 # FIXME: Minecraft not launching from launcher
 { config, meta, pkgs, ... }:
 let
-  path = "${config.home.homeDirectory}/${meta.dirs.games}/Legacy-Launcher";
+  path = "${meta.home}/${meta.dirs.games}/Legacy-Launcher";
   download-url = "https://dl.llaun.ch/legacy/bootstrap";
   bootstrap = "${path}/bootstrap.jar";
   launcher = "${path}/launcher.jar";
@@ -18,11 +18,9 @@ in
         cp "${bootstrap}" "${launcher}"
       fi
 
-      # Фикс для пробелов в пути
       export _JAVA_OPTIONS="-Duser.home=${path}"
       export _JAVA_AWT_WM_NONREPARENTING=1
       
-      # Запускаем из домашней директории, чтобы избежать проблем с cd
       java -jar "${bootstrap}"
     '')
   ];

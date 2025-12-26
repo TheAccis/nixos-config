@@ -13,6 +13,10 @@
 				jnoortheen.nix-ide # Nix
 				ms-python.python # Python
 
+				# Languages - QT
+				theqtcompany.qt-core
+				theqtcompany.qt-qml
+
 				# Tools
 				gruntfuggly.todo-tree # Todo tree
 			];

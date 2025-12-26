@@ -1,31 +1,28 @@
 { config, meta, lib, ... }:
-let
-	home = config.home.homeDirectory;
-in
 {	
 	xdg.userDirs = {
 		enable = true;
 		createDirectories = true;
 
-		pictures = "${home}/${meta.dirs.pictures}";
-		videos = "${home}/${meta.dirs.videos}";
-		music = "${home}/${meta.dirs.music}";
+		pictures = "${meta.home}/${meta.dirs.pictures}";
+		videos = "${meta.home}/${meta.dirs.videos}";
+		music = "${meta.home}/${meta.dirs.music}";
 
-		documents = "${home}/${meta.dirs.documents}";
-		download = "${home}/${meta.dirs.download}";
-		templates = "${home}/${meta.dirs.templates}";
+		documents = "${meta.home}/${meta.dirs.documents}";
+		download = "${meta.home}/${meta.dirs.download}";
+		templates = "${meta.home}/${meta.dirs.templates}";
 
 		desktop = null;
 		publicShare = null;
 
 		extraConfig = {
-			XDG_SCREENSHOTS_DIR = "${home}/${meta.dirs.screenshots}";
-			XDG_PROJECTS_DIR = "${home}/${meta.dirs.projects}";
+			XDG_SCREENSHOTS_DIR = "${meta.home}/${meta.dirs.screenshots}";
+			XDG_PROJECTS_DIR = "${meta.home}/${meta.dirs.projects}";
 		};
 	};
 	
 	# Create custom folders
 	systemd.user.tmpfiles.rules = map (dir:
-		"d ${home}/${dir} 0755 - - -"
+		"d ${meta.home}/${dir} 0755 - - -"
 	) meta.dirs.custom;
 }

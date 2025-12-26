@@ -1,10 +1,15 @@
 { config, lib, pkgs, ... }:
 rec {
-	config-path = "/home/${user}/nixos-config";
+	# Home path
+	home = "/home/${user}";
+
+	# NixOS config path
+	config-path = "${home}/nixos-config";
 
 	# Available wm: hyprland
 	wm.name = "hyprland";
 
+	# Locale
 	locale = {
 		default = "ru_RU";
 		fallback = "en_US";

@@ -1,7 +1,15 @@
+{ config, ... }:
+let
+  qs-config-path = "${config.xdg.dataHome}/quickshell";
+in 
 {
+	home.sessionVariables = {
+		QT_LOGGING_RULES = "qt.qpa.wayland.decorations=false";
+		QML_IMPORT_PATH = "${qs-config-path}/components";
+	};
+
 	programs.quickshell = {
 		enable = true;
-		package = inputs.quickshell.packages.${pkgs.system}.default;
 		systemd.enable = true;
 	};
 }

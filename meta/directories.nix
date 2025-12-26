@@ -1,9 +1,6 @@
 { config, lib, pkgs, ... }:
 {
 	dirs = rec {
-		# Home path
-		home = "";
-
 		# User directories
 		documents = "Документы";
 		download = "Загрузки";

@@ -5,7 +5,5 @@
     ntfs3g
 		udisks
 		git
-
-		xdg-desktop-portal-gtk
 	];
 }
