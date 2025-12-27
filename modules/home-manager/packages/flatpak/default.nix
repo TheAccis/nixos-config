@@ -1,5 +1,5 @@
 {
 	imports = [
 		./tl-legacy.nix
-	]
+	];
 }

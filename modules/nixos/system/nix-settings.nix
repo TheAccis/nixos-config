@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, meta, ... }:
 {
 	system.stateVersion = meta.version;
 

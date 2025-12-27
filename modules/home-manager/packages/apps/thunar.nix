@@ -5,9 +5,10 @@
 			thunarPlugins = [
 				xfce.thunar-archive-plugin
 				xfce.thunar-volman
+
+        mate.engrampa
 			];
 		})
-		mate.engrampa
 	];
 
 	xdg.desktopEntries."thunar-bulk-rename" = {

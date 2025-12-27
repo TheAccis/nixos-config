@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  qs-config-path = "${config.xdg.dataHome}/quickshell";
+  qs-config-path = "${config.xdg.configHome}/quickshell";
 in 
 {
 	home.sessionVariables = {
