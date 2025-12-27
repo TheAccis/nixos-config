@@ -2,7 +2,9 @@
 let
 	hostnamesList = pkgs.lib.concatStringsSep ", " meta.hostnames;
 	divider = "========================================";
-	# disk = disko.devices.disk.main.device
+
+	swap-file = "/mnt/.install-swap";
+	swap-size = "8G";
 in
 ''
 	set -euo pipefail
@@ -44,14 +46,7 @@ in
 	echo "${divider}"
 	echo "* Enabling temporary swap for installation..."
 
-	SWAPFILE="/mnt/.install-swap"
-	SWAPSIZE="8G"
-
-	sudo fallocate -l "$SWAPSIZE" "$SWAPFILE"
-
-	sudo chmod 600 "$SWAPFILE"
-	sudo mkswap "$SWAPFILE"
-	sudo swapon "$SWAPFILE"
+	sudo btrfs filesystem mkswapfile --size ${swap-size} ${swap-file}
 
 	echo "${divider}"
 	echo "* Installing NixOS system..."
@@ -60,10 +55,10 @@ in
 	echo "${divider}"
 	echo "* Disabling temporary swap..."
 
-	sudo swapoff "$SWAPFILE" || true
-	sudo rm -f "$SWAPFILE"
+	sudo swapoff "${swap-file}" || true
+	sudo rm -f "${swap-file}"
 
 	echo "${divider}"
 	echo "* Installation complete!"
-	echo "* Reboot with: sudo reboot"
+	echo "* Reboot with: reboot"
 ''
