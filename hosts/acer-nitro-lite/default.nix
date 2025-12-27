@@ -1,13 +1,11 @@
 {
 	imports = [
 		../../modules/nixos
-		./modules
 
 		../shared-modules/nvidia.nix
 		../shared-modules/tlp.nix
 
 		./hardware-configuration.nix
-		./packages.nix
 	];
 
 	disko.devices.disk.main.device = "/dev/nvme0n1";

@@ -3,7 +3,6 @@
 		../../modules/nixos
 
 		./hardware-configuration.nix
-		./packages.nix
 	];
 
   disko.devices.disk.main.device = "/dev/sda";

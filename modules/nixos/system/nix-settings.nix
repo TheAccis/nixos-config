@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
 {
-	nixpkgs.config.allowUnfree = true;
+	system.stateVersion = meta.version;
 
-  nix.channel.enable = false;
+	nixpkgs.config.allowUnfree = true;
+	nix.channel.enable = false;
 
 	nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+		experimental-features = [ "nix-command" "flakes" ];
 
 		max-substitution-jobs = 20;
 		http-connections = 50;

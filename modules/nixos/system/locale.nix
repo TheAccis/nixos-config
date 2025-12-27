@@ -5,6 +5,8 @@ let
   enc = meta.locale.encoding;
 in
 {
+  time.timeZone = "Europe/Moscow";
+
 	i18n.defaultLocale = default;
 	i18n.extraLocales = [
 		"${default}/${enc}"

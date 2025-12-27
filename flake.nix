@@ -3,45 +3,31 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11?shallow=1";
+		nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-		disko = {
-			url = "github:nix-community/disko";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		disko.url = "github:nix-community/disko";
+		disko.inputs.nixpkgs.follows = "nixpkgs";
 
-		home-manager = {
-			url = "github:nix-community/home-manager/release-25.11";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		home-manager.url = "github:nix-community/home-manager/release-25.11";
+		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-	 	agenix = {
-	 		url = "github:ryantm/agenix";
-	 		inputs.nixpkgs.follows = "nixpkgs";
-	 	};
+	 	agenix.url = "github:ryantm/agenix";
+	 	agenix.inputs.nixpkgs.follows = "nixpkgs";
 
 		vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-
 		nur.url = "github:nix-community/NUR";
 
-		stylix = {
-			url = "github:danth/stylix/release-25.11";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		stylix.url = "github:danth/stylix/release-25.11";
+		stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-		zen-browser = {
-			url = "github:0xc000022070/zen-browser-flake";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		zen-browser.url = "github:0xc000022070/zen-browser-flake";
+		zen-browser.inputs.nixpkgs.follows = "nixpkgs";
 
-		caelestia-shell = {
-			url = "github:caelestia-dots/shell";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		caelestia-shell.url = "github:caelestia-dots/shell";
+		caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
 
-		quickshell = {
-			url = "github:outfoxxed/quickshell";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+		quickshell.url = "github:outfoxxed/quickshell";
+		quickshell.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
 	outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
@@ -67,7 +53,7 @@
 			system = meta.system;
 			specialArgs = { inherit hostname nur-pkgs inputs meta; };
 			modules = [ 
-				./hosts/${hostname}/configuration.nix
+				./hosts/${hostname}
 				inputs.disko.nixosModules.disko
 			];
 		};

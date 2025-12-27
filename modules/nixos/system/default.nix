@@ -1,10 +1,12 @@
 {
 	imports = [
     ./nix-settings.nix
-		./timezone.nix
-    ./firewall.nix
+    ./hardware.nix
+    ./security.nix
+    ./network.nix
 		./locale.nix
-		./zram.nix
-    ./tmp.nix
+    ./disko.nix
+    ./boot.nix
+		./ram.nix
 	];
 }
