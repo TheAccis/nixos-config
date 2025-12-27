@@ -47,6 +47,7 @@ in
 	echo "* Enabling temporary swap for installation..."
 
 	sudo btrfs filesystem mkswapfile --size ${swap-size} ${swap-file}
+	sudo swapon ${swap-file}
 
 	echo "${divider}"
 	echo "* Installing NixOS system..."
