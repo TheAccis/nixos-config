@@ -2,6 +2,7 @@
 let
 	hostnamesList = pkgs.lib.concatStringsSep ", " meta.hostnames;
 	divider = "========================================";
+	# disk = disko.devices.disk.main.device
 in
 ''
 	set -euo pipefail
@@ -40,8 +41,27 @@ in
 		run github:nix-community/disko -- --mode destroy,format,mount \
 		--flake "${self}#$hostname" --yes-wipe-all-disks
 
+	echo "${divider}"
+	echo "* Enabling temporary swap for installation..."
+
+	SWAPFILE="/mnt/.install-swap"
+	SWAPSIZE="8G"
+
+	sudo fallocate -l "$SWAPSIZE" "$SWAPFILE"
+
+	sudo chmod 600 "$SWAPFILE"
+	sudo mkswap "$SWAPFILE"
+	sudo swapon "$SWAPFILE"
+
+	echo "${divider}"
 	echo "* Installing NixOS system..."
 	sudo nixos-install --flake "${self}#$hostname" --no-root-passwd
+
+	echo "${divider}"
+	echo "* Disabling temporary swap..."
+
+	sudo swapoff "$SWAPFILE" || true
+	sudo rm -f "$SWAPFILE"
 
 	echo "${divider}"
 	echo "* Installation complete!"

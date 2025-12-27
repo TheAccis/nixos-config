@@ -17,14 +17,6 @@
 			};
 		};
 
-		content.partitions.swap = {
-			size = "8G";
-			type = "8200";
-			content = {
-				type = "swap";
-			};
-		};
-
 		content.partitions.root = {
 			size = "100%";
 			content = {
