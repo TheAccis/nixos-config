@@ -5,6 +5,8 @@
 	services.xserver.enable = false;
 	services.xserver.videoDrivers = [ "nvidia" ];
 
+	boot.blacklistedKernelModules = [ "nouveau" "nova_core" ];
+
 	hardware.graphics = {
 		enable = true;
 		enable32Bit = true;
@@ -29,10 +31,7 @@
 		package = config.boot.kernelPackages.nvidiaPackages.stable;
 		nvidiaSettings = true;
 
-		powerManagement = {
-			enable = true;
-			finegrained = false;
-		};
+		powerManagement.enable = true;
 	};
 
 	boot.kernelParams = [

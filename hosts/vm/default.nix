@@ -4,8 +4,9 @@
 
 		./hardware-configuration.nix
 		./packages.nix
-		./disko.nix
 	];
+
+  disko.devices.disk.main.device = "/dev/sda";
 
 	services.qemuGuest.enable = true;
 	services.spice-vdagentd.enable = true;

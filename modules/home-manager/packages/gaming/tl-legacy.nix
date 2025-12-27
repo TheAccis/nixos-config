@@ -1,13 +1,49 @@
-# FIXME: Minecraft not launching from launcher
 { config, meta, pkgs, ... }:
 let
   path = "${meta.home}/${meta.dirs.games}/Legacy-Launcher";
   download-url = "https://dl.llaun.ch/legacy/bootstrap";
   bootstrap = "${path}/bootstrap.jar";
   launcher = "${path}/launcher.jar";
+  
+  # Создаем FHS-совместимое окружение для Minecraft
+  minecraft-fhs = pkgs.buildFHSUserEnv {
+    name = "minecraft-fhs";
+    targetPkgs = pkgs: with pkgs; [
+      # Основные зависимости для Minecraft
+      openjdk
+      glib
+      gtk3
+      xorg.libX11
+      xorg.libXcursor
+      xorg.libXi
+      xorg.libXrandr
+      xorg.libXinerama
+      xorg.libXxf86vm
+      xorg.libXfixes
+      xorg.libXrender
+      mesa
+      libglvnd
+      zlib
+      stdenv.cc.cc.lib  # для libstdc++.so.6 и других системных библиотек
+      alsa-lib
+      libpulseaudio
+    ];
+    
+    # Дополнительные переменные среды для Java
+    profile = ''
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export GDK_BACKEND=x11
+      export SDL_VIDEODRIVER=x11
+      export MESA_LOADER_DRIVER_OVERRIDE=iris,i965,radeonsi,nouveau,virgl
+    '';
+    
+    # Запускаем Java в FHS-окружении
+    runScript = "java";
+  };
 in
 {
   home.packages = [
+    # Основной скрипт для запуска лаунчера
     (pkgs.writeShellScriptBin "legacy-launcher" ''
       mkdir -p "${path}"
 
@@ -18,10 +54,16 @@ in
         cp "${bootstrap}" "${launcher}"
       fi
 
+      # Запускаем лаунчер в обычном окружении
       export _JAVA_OPTIONS="-Duser.home=${path}"
       export _JAVA_AWT_WM_NONREPARENTING=1
       
       java -jar "${bootstrap}"
+    '')
+
+    # Специальный скрипт для запуска Minecraft в FHS-окружении
+    (pkgs.writeShellScriptBin "run-minecraft-fhs" ''
+      exec ${minecraft-fhs}/bin/java "$@"
     '')
   ];
 
@@ -44,6 +86,21 @@ ${launcher}
 
 --targetLibFolder
 ${path}/libraries
+
+--javaPath
+${pkgs.lib.getBin pkgs.openjdk}/bin/java
+
+--javaPath17
+${pkgs.lib.getBin pkgs.openjdk}/bin/java
+
+--javaPath8
+${pkgs.lib.getBin pkgs.openjdk8}/bin/java
+
+--customJavaPath
+${pkgs.writeShellScript "custom-java" ''
+  exec ${minecraft-fhs}/bin/java "$@"
+'}
+
 
 --
 
@@ -85,6 +142,7 @@ minecraft.improvedargs=true
 minecraft.improvedargs.type=DEFAULT
 minecraft.jre.change-trust-store=false
 minecraft.jre.type=recommended
+minecraft.jre.custom.path=${pkgs.lib.getBin pkgs.openjdk}/bin/java
 minecraft.mods.removeUndesirable=true
 minecraft.onlaunch=hide
 minecraft.servers.promoted=true
@@ -104,5 +162,21 @@ minecraft.xmx=10240
 notice.enabled=false
 notice.promoted=true
 settings.version=3
+launcher.java.path=${pkgs.lib.getBin pkgs.openjdk}/bin/java
+launcher.java.path.custom=${pkgs.writeShellScript "custom-java" ''
+  exec ${minecraft-fhs}/bin/java "$@"
+''}
   '';
+
+  # Дополнительно: добавляем библиотеки в LD_LIBRARY_PATH как fallback
+  home.sessionVariables = {
+    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
+      libGL
+      mesa
+      alsa-lib
+      libpulseaudio
+    ]);
+  };
 }

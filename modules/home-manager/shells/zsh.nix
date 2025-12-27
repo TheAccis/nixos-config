@@ -16,7 +16,7 @@
 
 			boot-analyze = ''
 				systemd-analyze
-				systemd-analyze blame
+				systemd-analyze blame | head --lines 25
 				systemd-analyze critical-chain
 			'';
 
