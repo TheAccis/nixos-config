@@ -6,6 +6,7 @@ in
 	home.sessionVariables = {
 		QT_LOGGING_RULES = "qt.qpa.wayland.decorations=false";
 		QML_IMPORT_PATH = "${qs-config-path}/components";
+		QML2_IMPORT_PATH = "${qs-config-path}/components";
 	};
 
 	programs.quickshell = {
