@@ -11,8 +11,6 @@
 
 	disko.devices.disk.main.device = "/dev/nvme0n1";
 
-	services.blueman.enable = true;
-
 	hardware.nvidia = {
 		powerManagement.finegrained = true;
 		prime = {
@@ -26,12 +24,11 @@
 
 	environment.systemPackages = with pkgs; 
 	[
+    mcontrolcenter
 		brightnessctl
 		powertop
 		upower
 	];
-
-	programs.coolercontrol.enable = true;
 
 	boot.extraModulePackages = [ config.boot.kernelPackages.msi-ec ];
 	boot.kernelModules = [ "msi-ec" ];

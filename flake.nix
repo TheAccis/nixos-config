@@ -3,6 +3,7 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11?shallow=1";
+
 		nix-flatpak.url = "github:gmodena/nix-flatpak";
 
 		disko.url = "github:nix-community/disko";
@@ -52,7 +53,7 @@
 		makeSystem = hostname: nixpkgs.lib.nixosSystem {
 			system = meta.system;
 			specialArgs = { inherit hostname nur-pkgs inputs meta; };
-			modules = [ 
+			modules = [
 				./hosts/${hostname}
 				inputs.disko.nixosModules.disko
 			];
@@ -60,7 +61,7 @@
 	in
 	{
 		nixosConfigurations = nixpkgs.lib.genAttrs meta.hostnames makeSystem;
-	
+
 		apps."${meta.system}".install = {
 			type = "app";
 			program = "${pkgs.writeShellScriptBin "nixos-install-script" install-script}/bin/nixos-install-script";

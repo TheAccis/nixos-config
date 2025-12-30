@@ -19,6 +19,8 @@
 
 				# Tools
 				gruntfuggly.todo-tree # Todo tree
+        # Code spell checker
+        # Russian code spell checker
 			];
 
 			userSettings = {
@@ -33,6 +35,7 @@
 				"workbench.startupEditor" = "none";
 
 				"explorer.confirmDragAndDrop" = false;
+        "explorer.confirmPasteNative" = false;
 				"explorer.confirmDelete" = false;
 
 				"git.confirmSync" = false;

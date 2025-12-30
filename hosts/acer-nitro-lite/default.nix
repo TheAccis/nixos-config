@@ -13,8 +13,6 @@
 
   networking.interfaces.en45s0.wakeOnLan.enable = false;
 
-	services.blueman.enable = true;
-
 	hardware.nvidia = {
 		powerManagement.finegrained = true;
 		prime = {
