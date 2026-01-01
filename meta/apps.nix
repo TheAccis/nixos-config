@@ -14,7 +14,8 @@
 			filename = "alacritty";
 			command = "alacritty";
 
-			extra.open-here = "alacritty --working-directory %f";
+			extra.open-here = "${pkgs.alacritty}/bin/alacritty --working-directory %f";
+			extra.exec-here = ''${pkgs.alacritty}/bin/alacritty -e sh -c "%f; echo; read -n1 -p 'Нажмите любую клавишу для выхода...'"'';
 		};
 
 		editor = {

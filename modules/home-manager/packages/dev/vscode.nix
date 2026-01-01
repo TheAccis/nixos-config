@@ -21,14 +21,14 @@
 				rust-lang.rust-analyzer
 				belfz.search-crates-io
 				tamasfe.even-better-toml
-				vadimcn.vscode-lldb
 
 				# Tools
 				gruntfuggly.todo-tree
-			];
+			] ++ [ pkgs.vscode-extensions.vadimcn.vscode-lldb ];
 
 			userSettings = {
 				"security.workspace.trust.untrustedFiles" = "open";
+				"locale" = "ru";
 
 				"editor.detectIndentation" = false;
 				"editor.insertSpaces" = false;
