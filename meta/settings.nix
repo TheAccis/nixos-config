@@ -29,6 +29,7 @@ rec {
 	hostnames = [
 		"acer-nitro-lite"
 		"accis-pc"
+    "msi-gf63"
 		"vm"
 	];
 }
