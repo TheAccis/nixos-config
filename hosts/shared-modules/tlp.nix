@@ -19,7 +19,6 @@
 
 		SATA_LINKPWR_ON_BAT = "med_power_with_dipm";
 		PCIE_ASPM_ON_BAT = "default";
-		WIFI_PWR_ON_BAT = "on"; # Maybe need to stop
 
 		SOUND_POWER_SAVE_ON_BAT = 1;
 		SOUND_POWER_SAVE_CONTROLLER = "Y";

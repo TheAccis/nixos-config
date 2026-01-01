@@ -31,5 +31,5 @@
 	];
 
 	boot.extraModulePackages = [ config.boot.kernelPackages.msi-ec ];
-	boot.kernelModules = [ "msi-ec" ];
+	boot.kernelModules = [ "msi-ec" "ec_sys" ];
 }
