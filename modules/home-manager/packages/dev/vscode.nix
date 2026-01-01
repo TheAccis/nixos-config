@@ -7,20 +7,24 @@
 		profiles.default = {
 			extensions = with vscode-extensions.open-vsx; [
 				# VSCode
-				ms-ceintl.vscode-language-pack-ru # Russian language
+				ms-ceintl.vscode-language-pack-ru
 
 				# Languages
-				jnoortheen.nix-ide # Nix
-				ms-python.python # Python
+				jnoortheen.nix-ide
+				ms-python.python
 
 				# Languages - QT
 				theqtcompany.qt-core
 				theqtcompany.qt-qml
 
+				# Languages - Rust
+				rust-lang.rust-analyzer
+				belfz.search-crates-io
+				tamasfe.even-better-toml
+				vadimcn.vscode-lldb
+
 				# Tools
-				gruntfuggly.todo-tree # Todo tree
-        # Code spell checker
-        # Russian code spell checker
+				gruntfuggly.todo-tree
 			];
 
 			userSettings = {
@@ -35,7 +39,7 @@
 				"workbench.startupEditor" = "none";
 
 				"explorer.confirmDragAndDrop" = false;
-        "explorer.confirmPasteNative" = false;
+				"explorer.confirmPasteNative" = false;
 				"explorer.confirmDelete" = false;
 
 				"git.confirmSync" = false;

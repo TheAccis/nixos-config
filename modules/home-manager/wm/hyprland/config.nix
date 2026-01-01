@@ -100,11 +100,11 @@
 			preserve_split = true;
 		};
 
-		master = {
-			new_status = "slave";
-			new_on_top = true;
-			mfact = 0.5;
-		};
+		# master = {
+		# 	new_status = "slave";
+		# 	new_on_top = true;
+		# 	mfact = 0.5;
+		# };
 
 		misc = {
 			force_default_wallpaper = 0;
