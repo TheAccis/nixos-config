@@ -1,11 +1,5 @@
 { config, inputs, pkgs, ... }:
 {
-  programs.throne = {
-    enable = true;
-    tunMode.enable = true;
-    tunMode.setuid = true;
-  };
-
 	documentation = {
 		enable = false;
 		doc.enable = false;
@@ -15,6 +9,7 @@
 
 	environment.systemPackages = with pkgs; 
 	[
+    bubblewrap
 		ntfs3g
 		udisks
 		git
