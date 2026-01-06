@@ -7,7 +7,6 @@
 				xfce.thunar-volman
 
 				mate.engrampa
-				p7zip
 			];
 		})
 	];
@@ -27,10 +26,27 @@
 		noDisplay = true;
 	};
 
-	# xdg.desktopEntries."engrampa" = {
-	# 	name = "Engrampa";
-	# 	noDisplay = true;
-	# };
+	xdg.desktopEntries."engrampa" = {
+		name = "Engrampa Archive Manager";
+
+		exec = "engrampa %U";
+		tryExec = "engrampa";
+		icon = "engrampa";
+		terminal = false;
+		type = "Application";
+		startupNotify = true;
+
+		categories = [ "GTK" "Utility" "Archiving" "Compression" ];
+
+		mimeType = [
+			"application/zip"
+			"application/x-zip"
+			"application/x-7z-compressed"
+			"application/x-tar"
+		];
+
+		noDisplay = true;
+	};
 
 	home.file."${config.xdg.configHome}/Thunar/uca.xml".text = ''
 <?xml version="1.0" encoding="UTF-8"?>

@@ -6,6 +6,9 @@
 	# Caelestia has its own notifications service
 	services.swaync.enable = lib.mkForce false;
 
+	# Caelestia has its own lockapp
+	programs.hyprlock.enable = lib.mkForce false;
+
 	programs.caelestia = {
 		enable = true;
 		systemd.enable = true;

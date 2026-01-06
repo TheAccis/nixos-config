@@ -5,7 +5,6 @@
 		# Desktop apps
 		(pkgs.bottles.override { removeWarningPopup = true; })
 		telegram-desktop
-    appimage-run
 		pwvucontrol
 		fragments
 		resources
@@ -15,6 +14,7 @@
 
 		# CLI utils
 		wl-clipboard
+    appimage-run
 		microfetch
 		grimblast
 		cliphist
