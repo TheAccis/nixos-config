@@ -41,7 +41,7 @@
 
 		general = {
 			gaps_in = 10;
-			gaps_out = 10;
+			#gaps_out = 10;
 
 			border_size = 3;
 
@@ -51,7 +51,7 @@
 			resize_on_border = true;
 
 			allow_tearing = false;
-			layout = "master";
+			layout = "dwindle";
 		};
 
 		decoration = {

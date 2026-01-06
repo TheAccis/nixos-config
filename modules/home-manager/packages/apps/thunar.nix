@@ -10,8 +10,6 @@
 				p7zip
 			];
 		})
-
-		nemo-with-extensions
 	];
 
 	xdg.desktopEntries."thunar-bulk-rename" = {

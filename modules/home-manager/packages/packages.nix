@@ -23,6 +23,4 @@
 
 		libnotify
 	];
-
-  programs.chromium.enable = true;
 }
