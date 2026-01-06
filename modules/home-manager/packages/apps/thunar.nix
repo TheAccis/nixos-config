@@ -5,8 +5,6 @@
 			thunarPlugins = [
 				xfce.thunar-archive-plugin
 				xfce.thunar-volman
-
-				mate.engrampa
 			];
 		})
 	];
@@ -23,28 +21,6 @@
 
 	xdg.desktopEntries."thunar-volman-settings" = {
 		name = "Thunar Volman Settings";
-		noDisplay = true;
-	};
-
-	xdg.desktopEntries."engrampa" = {
-		name = "Engrampa Archive Manager";
-
-		exec = "engrampa %U";
-		tryExec = "engrampa";
-		icon = "engrampa";
-		terminal = false;
-		type = "Application";
-		startupNotify = true;
-
-		categories = [ "GTK" "Utility" "Archiving" "Compression" ];
-
-		mimeType = [
-			"application/zip"
-			"application/x-zip"
-			"application/x-7z-compressed"
-			"application/x-tar"
-		];
-
 		noDisplay = true;
 	};
 

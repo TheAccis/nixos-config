@@ -5,16 +5,17 @@
 		# Desktop apps
 		(pkgs.bottles.override { removeWarningPopup = true; })
 		telegram-desktop
+    mate.engrampa
 		pwvucontrol
 		fragments
 		resources
-	 	obsidian
+    obsidian
 		#pinta
 		#mpv
 
 		# CLI utils
 		wl-clipboard
-    appimage-run
+	 	appimage-run
 		microfetch
 		grimblast
 		cliphist
