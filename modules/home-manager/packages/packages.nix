@@ -13,8 +13,6 @@
 		#pinta
 		#mpv
 
-    nemo-with-extensions
-
 		# CLI utils
 		wl-clipboard
 		microfetch
@@ -25,4 +23,6 @@
 
 		libnotify
 	];
+
+  programs.chromium.enable = true;
 }
