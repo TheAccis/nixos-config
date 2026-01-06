@@ -13,6 +13,8 @@
 		#pinta
 		#mpv
 
+    nemo-with-extensions
+
 		# CLI utils
 		wl-clipboard
 		microfetch

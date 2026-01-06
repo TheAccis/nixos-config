@@ -9,7 +9,6 @@
 
 	environment.systemPackages = with pkgs; 
 	[
-    bubblewrap
 		ntfs3g
 		udisks
 		git
