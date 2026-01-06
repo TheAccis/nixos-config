@@ -22,11 +22,11 @@
 		};
 	};
 
-  programs.nm-applet.enable = true;
+	programs.nm-applet.enable = true;
 
 	environment.systemPackages = with pkgs; 
 	[
-    mcontrolcenter
+		mcontrolcenter
 		brightnessctl
 		powertop
 		upower

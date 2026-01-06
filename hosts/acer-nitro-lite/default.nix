@@ -11,8 +11,6 @@
 
 	disko.devices.disk.main.device = "/dev/nvme0n1";
 
-  networking.interfaces.en45s0.wakeOnLan.enable = false;
-
 	hardware.nvidia = {
 		powerManagement.finegrained = true;
 		prime = {
@@ -24,11 +22,11 @@
 		};
 	};
 
-  programs.nm-applet.enable = true;
+	programs.nm-applet.enable = true;
 
 	environment.systemPackages = with pkgs; 
-  [
-    brightnessctl
-    powertop
-  ];
+	[
+		brightnessctl
+		powertop
+	];
 }
