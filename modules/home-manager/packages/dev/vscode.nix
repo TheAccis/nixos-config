@@ -28,7 +28,6 @@
 
 			userSettings = {
 				"security.workspace.trust.untrustedFiles" = "open";
-				"locale" = "ru";
 
 				"editor.detectIndentation" = false;
 				"editor.insertSpaces" = false;
@@ -44,6 +43,8 @@
 
 				"git.confirmSync" = false;
 				"git.autofetch" = true;
+
+				"lldb.suppressUpdateNotifications" = true;
 			};
 		};
 	};

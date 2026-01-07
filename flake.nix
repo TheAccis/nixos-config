@@ -56,6 +56,7 @@
 			modules = [
 				./hosts/${hostname}
 				inputs.disko.nixosModules.disko
+        inputs.home-manager.nixosModules.default
 			];
 		};
 	in

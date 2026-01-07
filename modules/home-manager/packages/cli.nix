@@ -8,7 +8,7 @@
 
 	programs."${meta.apps.shell}".shellAliases =
 	{
-		grep = "rg -i "; # grep -> ripgrep
+		grep = "rg"; # grep -> ripgrep
 
 		find = "fd"; # find -> fd
 

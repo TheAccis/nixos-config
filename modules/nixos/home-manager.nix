@@ -1,7 +1,5 @@
 { nur-pkgs, config, inputs, meta, pkgs, lib, ... }: 
 {
-	imports = [ inputs.home-manager.nixosModules.default ];
-
 	home-manager = {
 		useGlobalPkgs = true;
 		useUserPackages = true;
