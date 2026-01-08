@@ -50,7 +50,6 @@
 			resize_on_border = true;
 
 			allow_tearing = false;
-			layout = "dwindle";
 		};
 
 		decoration = {
@@ -96,11 +95,13 @@
 			"3, horizontal, workspace, invert"
 		];
 
+		general.layout = "dwindle";
 		dwindle = {
 			pseudotile = true;
 			preserve_split = true;
 		};
 
+		# general.layout = "master";
 		# master = {
 		# 	new_status = "slave";
 		# 	new_on_top = true;

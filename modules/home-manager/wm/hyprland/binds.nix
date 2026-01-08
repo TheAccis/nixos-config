@@ -2,18 +2,19 @@
 {
 	wayland.windowManager.hyprland.settings = {
 		bind = [
-			"$main-button,       Q, exec, ${meta.apps.terminal.command}"
-			"$main-button,       C, killactive,"
-			"$main-button SHIFT, Q, exit,"
-			"$main-button,       F, togglefloating,"
-			"$main-button,       R, exec, apps_menu"
-			"$main-button SHIFT, R, exec, apps_menu_extended"
-			"$main-button,       P, pin,"
-			"$main-button,       J, togglesplit,"
-			"$main-button,       E, exec, ${meta.apps.file-manager.command}"
-			"$main-button,       L, exec, loginctl lock-session"
-			# "$main-button,       P, exec, hyprpicker -an"
-			"$main-button,       N, exec, swaync-client -t"
+			"$main-button,				Q, exec, ${meta.apps.terminal.command}"
+			"$main-button,				C, killactive,"
+			"$main-button SHIFT,	Q, exit,"
+			"$main-button,				F, togglefloating,"
+			"$main-button,				F11, fullscreen"
+			"$main-button,				R, exec, apps_menu"
+			"$main-button SHIFT,	R, exec, apps_menu_extended"
+			"$main-button,				P, pin,"
+			"$main-button,				J, togglesplit,"
+			"$main-button,				E, exec, ${meta.apps.file-manager.command}"
+			"$main-button,				L, exec, loginctl lock-session"
+			# "$main-button,				P, exec, hyprpicker -an"
+			"$main-button,				N, exec, swaync-client -t"
 			", Print, exec, grimblast --notify --freeze copysave area"
 
 			# Moving focus
@@ -27,9 +28,6 @@
 			"$main-button SHIFT, right, swapwindow, r"
 			"$main-button SHIFT, up,    swapwindow, u"
 			"$main-button SHIFT, down,  swapwindow, d"
-
-			# Change window state
-			"$main-button, F11, fullscreen"
 
 			# Switching workspaces
 			"$main-button, 1, workspace, 1"

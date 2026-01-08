@@ -1,8 +1,9 @@
-{ pkgs, ... }:
+{ meta, pkgs, ... }:
 {
 	home.packages = with pkgs;
 	[
 		# Desktop apps
+    meta.apps.screenshot-app.pkg
 		telegram-desktop
 		mate.engrampa
 		pwvucontrol
@@ -21,7 +22,6 @@
 		wl-clipboard
 		appimage-run
 		microfetch
-		grimblast
 		cliphist
 		killall
 		p7zip

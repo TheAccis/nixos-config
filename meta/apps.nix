@@ -4,13 +4,11 @@
 		shell = "zsh";
 
 		browser = {
-			name = "Zen";
 			filename = "zen-beta";
 			command = "zen-beta";
 		};
 
 		terminal = {
-			name = "Alacritty";
 			filename = "alacritty";
 			command = "alacritty";
 
@@ -19,43 +17,46 @@
 		};
 
 		editor = {
-			name = "VSCode";
 			filename = "codium";
 			command = "codium";
 		};
 
 		file-manager = {
-			name = "Thunar";
 			filename = "thunar";
 			command = "thunar";
 		};
 
 		archiver = {
-			name = "Engrampa";
 			filename = "engrampa";
 			command = "engrampa";
 		};
 
 		torrent-client = {
-			name = "QBitTorrent";
 			filename = "org.qbittorrent.qBittorrent";
 			command = "qbittorrent";
 		};
 
+		screenshot-app = {
+			filename = "org.qbittorrent.qBittorrent";
+			command = "hyprshot";
+      pkg = pkgs.hyprshot;
+
+      extra.take-screen = "hyprshot -m output";
+      extra.take-window = "hyprshot -m window";
+      extra.take-region = "hyprshot -m regoin";
+		};
+
 		image-viewer = {
-			name = "qView";
 			filename = "com.interversehq.qView";
 			command = "qview";
 		};
 
 		video-viewer = {
-			name = "...";
 			filename = "...";
 			command = "...";
 		};
 
 		audio-viewer = {
-			name = "...";
 			filename = "...";
 			command = "...";
 		};

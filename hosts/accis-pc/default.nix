@@ -16,5 +16,5 @@
 
 	home-manager.users.${meta.user} = {
 		services.flatpak.packages = [ "io.github.glaumar.QRookie" ];
-	}
+	};
 }
