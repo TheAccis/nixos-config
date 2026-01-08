@@ -3,19 +3,23 @@
 	home.packages = with pkgs;
 	[
 		# Desktop apps
-		(pkgs.bottles.override { removeWarningPopup = true; })
 		telegram-desktop
-    mate.engrampa
+		mate.engrampa
 		pwvucontrol
 		fragments
 		resources
-    obsidian
+		#obsidian
 		#pinta
 		#mpv
 
+		# Windows gaming
+		wineWowPackages.staging
+		winetricks
+		lutris
+
 		# CLI utils
 		wl-clipboard
-	 	appimage-run
+		appimage-run
 		microfetch
 		grimblast
 		cliphist
@@ -24,4 +28,6 @@
 
 		libnotify
 	];
+
+	home.file.".local/share/lutris/runners/wine/proton-ge".source = "${pkgs.proton-ge-bin}";
 }

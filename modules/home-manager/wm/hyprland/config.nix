@@ -15,7 +15,6 @@
 		"$main-button" = "SUPER";
 
 		env = [
-			# Hint Electron apps to use Wayland
 			"NIXOS_OZONE_WL,1"
 			"XDG_CURRENT_DESKTOP,Hyprland"
 			"XDG_SESSION_TYPE,wayland"
@@ -40,8 +39,8 @@
 		];
 
 		general = {
-			gaps_in = 10;
-			#gaps_out = 10;
+			#gaps_in = 10;
+			gaps_out = 10;
 
 			border_size = 3;
 
@@ -89,6 +88,8 @@
 		input = {
 			kb_layout = "us,ru";
 			kb_options = "grp:alt_shift_toggle";
+
+			touchpad.disable_while_typing = false;
 		};
 
 		gesture = [
