@@ -4,10 +4,10 @@
 	[
 		# Desktop apps
     meta.apps.screenshot-app.pkg
+		meta.apps.torrent-client.pkg
+		meta.apps.archiver.pkg
 		telegram-desktop
-		mate.engrampa
 		pwvucontrol
-		fragments
 		resources
 		#obsidian
 		#pinta
@@ -29,5 +29,5 @@
 		libnotify
 	];
 
-	home.file.".local/share/lutris/runners/wine/proton-ge".source = "${pkgs.proton-ge-bin}";
+	#home.file.".local/share/lutris/runners/wine/proton-ge".source = "${pkgs.proton-ge-bin}";
 }

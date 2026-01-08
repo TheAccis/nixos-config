@@ -1,7 +1,12 @@
 { config, lib, pkgs, ... }:
 {
 	apps = {
-		shell = "zsh";
+		shell = {
+      name = "zsh";
+
+      extra.init-content = "";
+      extra.aliases = {};
+    };
 
 		browser = {
 			filename = "zen-beta";
@@ -29,11 +34,14 @@
 		archiver = {
 			filename = "engrampa";
 			command = "engrampa";
+      pkg = pkgs.mate.engrampa;
 		};
 
+    # Fragments
 		torrent-client = {
-			filename = "org.qbittorrent.qBittorrent";
-			command = "qbittorrent";
+			filename = "de.haeckerfelix.Fragments";
+			command = "fragments";
+      pkg = pkgs.fragments;
 		};
 
 		screenshot-app = {

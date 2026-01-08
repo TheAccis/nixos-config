@@ -15,13 +15,17 @@
 			"$main-button,				L, exec, loginctl lock-session"
 			# "$main-button,				P, exec, hyprpicker -an"
 			"$main-button,				N, exec, swaync-client -t"
-			", Print, exec, grimblast --notify --freeze copysave area"
+
+			# Screenshot
+			", Print, exec, ${meta.apps.screenshot-app.extra.take-region}"
+			"SHIFT, Print, exec, ${meta.apps.screenshot-app.extra.take-screen}"
+			"$main-button, Print, exec, ${meta.apps.screenshot-app.extra.take-window}"
 
 			# Moving focus
-			"$main-button, left, movefocus, l"
-			"$main-button, right, movefocus, r"
-			"$main-button, up, movefocus, u"
-			"$main-button, down, movefocus, d"
+			"$main-button, left,	movefocus, l"
+			"$main-button, right,	movefocus, r"
+			"$main-button, up,		movefocus, u"
+			"$main-button, down,	movefocus, d"
 
 			# Moving windows
 			"$main-button SHIFT, left,  swapwindow, l"

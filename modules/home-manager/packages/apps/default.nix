@@ -1,10 +1,9 @@
 {
 	imports = [
-    ./virt-viewer.nix
-    ./zen-browser.nix
-		./alacritty.nix
-		./thunar.nix
-    ./qview.nix
+		./file-manager.nix
+    ./image-viewer.nix
+		./terminal.nix
+    ./browser.nix
 		./git.nix
 	];
 }

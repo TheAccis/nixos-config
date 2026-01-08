@@ -22,6 +22,9 @@
 				belfz.search-crates-io
 				tamasfe.even-better-toml
 
+				# WebAssembly
+				bytecodealliance.wit-idl
+
 				# Tools
 				gruntfuggly.todo-tree
 			] ++ [ pkgs.vscode-extensions.vadimcn.vscode-lldb ];
