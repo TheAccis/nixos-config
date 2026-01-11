@@ -6,20 +6,11 @@
 
 		profiles.default = {
 			extensions = with vscode-extensions.open-vsx; [
-				# VSCode
-				ms-ceintl.vscode-language-pack-ru
-
 				# Languages
 				jnoortheen.nix-ide
-				ms-python.python
-
-				# Languages - QT
-				theqtcompany.qt-core
-				theqtcompany.qt-qml
 
 				# Languages - Rust
 				rust-lang.rust-analyzer
-				belfz.search-crates-io
 				tamasfe.even-better-toml
 
 				# WebAssembly
@@ -27,15 +18,13 @@
 
 				# Tools
 				gruntfuggly.todo-tree
-			] ++ [ pkgs.vscode-extensions.vadimcn.vscode-lldb ];
+			]; # ++ [ pkgs.vscode-extensions.vadimcn.vscode-lldb ];
 
 			userSettings = {
 				"security.workspace.trust.untrustedFiles" = "open";
 
-				"editor.detectIndentation" = false;
 				"editor.insertSpaces" = false;
 				"editor.fontSize" = 18;
-				"editor.tabSize" = 3;
 
 				"workbench.colorTheme" = "Default Dark Modern";
 				"workbench.startupEditor" = "none";
@@ -48,10 +37,10 @@
 				"explorer.confirmPasteNative" = false;
 				"explorer.confirmDelete" = false;
 
+				"files.trimTrailingWhitespace" = true;
+
 				"git.confirmSync" = false;
 				"git.autofetch" = true;
-
-				"lldb.suppressUpdateNotifications" = true;
 			};
 		};
 	};
