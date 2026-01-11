@@ -1,6 +1,6 @@
 { meta, lib, ... }:
 let
-  temp-cli-pkgs = [ "nix-tree" "tree" ];
+  temp-cli-pkgs = [ "microfetch" "nix-tree" "tree" ];
   emoji = "⏳";
 in
 {

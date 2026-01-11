@@ -3,7 +3,7 @@
 	imports = [
 		../../modules/nixos
 
-		../shared-modules/virt-manager.nix
+		# ../shared-modules/virt-manager.nix
 		../shared-modules/nvidia.nix
 		../shared-modules/java.nix
 
@@ -14,7 +14,7 @@
 
 	boot.kernelPackages = lib.mkForce pkgs.linuxPackages_zen;
 
-	home-manager.users.${meta.user} = {
-		services.flatpak.packages = [ "io.github.glaumar.QRookie" ];
-	};
+	# home-manager.users.${meta.user} = {
+	# 	services.flatpak.packages = [ "io.github.glaumar.QRookie" ];
+	# };
 }

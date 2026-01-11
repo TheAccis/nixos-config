@@ -1,12 +1,13 @@
 { config, lib, pkgs, ... }:
 {
 	apps = {
-		shell = {
-      name = "zsh";
-
-      extra.init-content = "";
-      extra.aliases = {};
-    };
+    shell = "zsh";
+		#shell = {
+    #  name = "zsh";
+#
+    #  extra.init-content = "";
+    #  extra.aliases = {};
+    #};
 
 		browser = {
 			filename = "zen-beta";

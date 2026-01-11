@@ -40,6 +40,10 @@
 				"workbench.colorTheme" = "Default Dark Modern";
 				"workbench.startupEditor" = "none";
 
+				"window.menuBarVisibility" = "hidden";
+				"window.titleBarStyle" = "custom";
+				"window.customTitleBarVisibility" = "never";
+
 				"explorer.confirmDragAndDrop" = false;
 				"explorer.confirmPasteNative" = false;
 				"explorer.confirmDelete" = false;
