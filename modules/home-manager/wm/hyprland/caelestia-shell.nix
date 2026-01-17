@@ -14,7 +14,7 @@
 		systemd.enable = true;
 
 		settings = {
-			paths.wallpaperDir = "~/${meta.dirs.wallpapers}";
+			paths.wallpaperDir = "${meta.home}/${meta.dirs.wallpapers}";
 		};
 
 		cli = {
