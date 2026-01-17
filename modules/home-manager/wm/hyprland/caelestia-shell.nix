@@ -14,20 +14,18 @@
 		systemd.enable = true;
 
 		settings = {
-			paths.wallpaperDir = "${meta.home}/${meta.dirs.wallpapers}";
+			paths.wallpaperDir = "~/${meta.dirs.wallpapers}";
 		};
 
 		cli = {
 			enable = true;
-			settings = {
-				theme.enableGtk = true;
-			};
+			settings.theme.enableGtk = true;
 		};
 	};
 
 	wayland.windowManager.hyprland.settings = {
 		bind = [
-			"$main-button, X, global, caelestia:launcher"
+			"$main-button, R, global, caelestia:launcher"
 			", Print, global, caelestia:screenshot"
 		];
 	};
