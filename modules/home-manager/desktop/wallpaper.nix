@@ -1,4 +1,4 @@
-{ meta, ... }:
+{ modules, pkgs, meta, ... }:
 {
 	home.file."${meta.dirs.wallpapers}" = {
 		source = ../../../other/wallpapers;

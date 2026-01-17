@@ -1,4 +1,4 @@
-{ modules, meta, ... }: 
+{ modules, meta, ... }:
 {
   imports = [
     modules.caelestia-shell.homeManagerModules.default

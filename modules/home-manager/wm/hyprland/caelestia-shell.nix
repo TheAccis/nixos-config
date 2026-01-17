@@ -19,7 +19,10 @@
 
 		cli = {
 			enable = true;
-			settings.theme.enableGtk = true;
+			settings = {
+				theme.enableGtk = true;
+				background.enabled = false;
+			};
 		};
 	};
 

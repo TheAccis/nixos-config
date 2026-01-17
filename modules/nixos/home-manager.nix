@@ -1,4 +1,4 @@
-{ nur-pkgs, config, inputs, meta, pkgs, lib, ... }: 
+{ nur-pkgs, config, inputs, meta, pkgs, lib, ... }:
 {
 	home-manager = {
 		useGlobalPkgs = true;

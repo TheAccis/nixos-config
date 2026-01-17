@@ -26,9 +26,6 @@
 
 		caelestia-shell.url = "github:caelestia-dots/shell";
 		caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
-
-		quickshell.url = "github:outfoxxed/quickshell";
-		quickshell.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
 	outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
