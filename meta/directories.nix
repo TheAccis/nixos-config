@@ -2,24 +2,32 @@
 {
 	dirs = rec {
 		# User directories
-		documents = "Документы";
-		download = "Загрузки";
-		templates = "Шаблоны";
-		projects = "${documents}/Проекты";
-		games = "Игры";
+		documents = "documents";
+		download = "download";
+		games = "games";
+
+		# User directories - projects
+		projects = "${documents}/projects";
+		rust-projects = "${projects}/rust";
 
 		# User directories - media
-		pictures = "${media}/Изображения";
-		videos = "${media}/Видео";
-		music = "${media}/Музыка";
-		media = "Медиа";
+		pictures = "${media}/pictures";
+		videos = "${media}/videos";
+		music = "${media}/music";
+		media = "media";
+
+		# User directories - templates
+		dev-templates = "${templates}/dev";
+		nix-templates = "${templates}/nix";
+		templates = "templates";
 
 		# Custom
-		screenshots = "${pictures}/Скриншоты";
-		wallpapers = "${pictures}/Обои";
-		torrents = "${download}/Торренты";
+		screenshots = "${pictures}/screenshots";
+		wallpapers = "${pictures}/wallpapers";
+		torrents = "${download}/torrents";
 
 		custom = [
+			rust-projects
 			screenshots
 			wallpapers
 			torrents

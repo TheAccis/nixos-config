@@ -1,3 +1,0 @@
-module Config
-singleton Config Config.qml
-singleton Theme Theme.qml

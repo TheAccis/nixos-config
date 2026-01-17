@@ -14,14 +14,6 @@
 		systemd.enable = true;
 
 		settings = {
-			idle.lockBeforeSleep = true;
-			idle.timeouts = [
-				{
-					timeout = 3600000;
-					action = "lock";
-				}
-			];
-
 			paths.wallpaperDir = "~/${meta.dirs.wallpapers}";
 		};
 
@@ -31,5 +23,12 @@
 				theme.enableGtk = true;
 			};
 		};
+	};
+
+	wayland.windowManager.hyprland.settings = {
+		bind = [
+			"$main-button, X, global, caelestia:launcher"
+			", Print, global, caelestia:screenshot"
+		];
 	};
 }

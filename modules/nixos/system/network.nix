@@ -1,19 +1,19 @@
 { hostname, pkgs, ... }:
 {
-  networking = {
-    modemmanager.enable = false;
-    firewall.enable = false;
-    hostName = hostname;
+	networking = {
+		modemmanager.enable = false;
+		firewall.enable = false;
+		hostName = hostname;
 
-    networkmanager = {
-      enable = true;
-      wifi.powersave = false;
-      dns = "default";
-      #dns = "none";
-    };
-    
-    nameservers = [ ];
-  };
+		networkmanager = {
+			enable = true;
+			wifi.powersave = false;
+			dns = "default";
+			#dns = "none";
+		};
+
+		nameservers = [ ];
+	};
 
 #services.unbound = {
 #  enable = true;

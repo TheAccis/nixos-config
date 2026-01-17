@@ -2,12 +2,6 @@
 {
 	apps = {
     shell = "zsh";
-		#shell = {
-    #  name = "zsh";
-#
-    #  extra.init-content = "";
-    #  extra.aliases = {};
-    #};
 
 		browser = {
 			filename = "zen-beta";
@@ -38,21 +32,10 @@
       pkg = pkgs.mate.engrampa;
 		};
 
-    # Fragments
 		torrent-client = {
 			filename = "de.haeckerfelix.Fragments";
 			command = "fragments";
       pkg = pkgs.fragments;
-		};
-
-		screenshot-app = {
-			filename = "org.qbittorrent.qBittorrent";
-			command = "hyprshot";
-      pkg = pkgs.hyprshot;
-
-      extra.take-screen = "hyprshot -m output";
-      extra.take-window = "hyprshot -m window";
-      extra.take-region = "hyprshot -m regoin";
 		};
 
 		image-viewer = {

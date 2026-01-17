@@ -1,8 +1,7 @@
 {
 	imports = [
-		./quickshell
 		./parts
-		./wofi
+		# ./wofi
 
 		./caelestia-shell.nix
     ./policy-kit.nix

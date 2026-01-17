@@ -14,7 +14,11 @@
 
 	boot.kernelPackages = lib.mkForce pkgs.linuxPackages_zen;
 
-	# home-manager.users.${meta.user} = {
-	# 	services.flatpak.packages = [ "io.github.glaumar.QRookie" ];
-	# };
+	programs.nm-applet.enable = true;
+
+	services.hardware.openrgb.enable = true;
+	home-manager.users.${meta.user} = {
+		# services.flatpak.packages = [ "io.github.glaumar.QRookie" ];
+		home.packages = with pkgs; [ pkgs.openrgb ];
+	};
 }

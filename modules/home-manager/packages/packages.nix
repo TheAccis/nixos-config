@@ -3,7 +3,6 @@
 	home.packages = with pkgs;
 	[
 		# Desktop apps
-		meta.apps.screenshot-app.pkg
 		meta.apps.torrent-client.pkg
 		meta.apps.archiver.pkg
 		telegram-desktop

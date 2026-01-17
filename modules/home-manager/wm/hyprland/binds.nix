@@ -16,11 +16,6 @@
 			# "$main-button,				P, exec, hyprpicker -an"
 			"$main-button,				N, exec, swaync-client -t"
 
-			# Screenshot
-			", Print, exec, ${meta.apps.screenshot-app.extra.take-region}"
-			"SHIFT, Print, exec, ${meta.apps.screenshot-app.extra.take-screen}"
-			"$main-button, Print, exec, ${meta.apps.screenshot-app.extra.take-window}"
-
 			# Moving focus
 			"$main-button, left,	movefocus, l"
 			"$main-button, right,	movefocus, r"
