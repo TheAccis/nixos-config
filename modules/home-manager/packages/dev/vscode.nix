@@ -41,7 +41,7 @@
 
 				"git.confirmSync" = false;
 				"git.autofetch" = true;
-				"git.enableSmartCommit" = true
+				"git.enableSmartCommit" = true;
 			};
 		};
 	};
