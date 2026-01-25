@@ -23,6 +23,8 @@
 			userSettings = {
 				"security.workspace.trust.untrustedFiles" = "open";
 
+				"editor.stickyScroll.enabled" = false;
+				"editor.minimap.enabled" = false;
 				"editor.insertSpaces" = false;
 				"editor.fontSize" = 18;
 
@@ -36,6 +38,8 @@
 				"explorer.confirmDragAndDrop" = false;
 				"explorer.confirmPasteNative" = false;
 				"explorer.confirmDelete" = false;
+
+				"terminal.integrated.stickyScroll.enabled" = false;
 
 				"files.trimTrailingWhitespace" = true;
 
