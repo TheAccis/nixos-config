@@ -6,9 +6,9 @@
 		meta.apps.torrent-client.pkg
 		meta.apps.archiver.pkg
 		telegram-desktop
-		pwvucontrol
-		resources
-		#obsidian
+		mission-center
+		#pwvucontrol
+		obsidian
 		lutris
 		#pinta
 		#mpv
