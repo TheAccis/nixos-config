@@ -9,7 +9,6 @@
 		mission-center
 		#pwvucontrol
 		obsidian
-		lutris
 		#pinta
 		#mpv
 

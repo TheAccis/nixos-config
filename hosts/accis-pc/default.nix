@@ -19,6 +19,9 @@
 	services.hardware.openrgb.enable = true;
 	home-manager.users.${meta.user} = {
 		# services.flatpak.packages = [ "io.github.glaumar.QRookie" ];
-		home.packages = with pkgs; [ pkgs.openrgb ];
+		home.packages = with pkgs; [
+			openrgb
+			lutris
+		];
 	};
 }
