@@ -4,5 +4,6 @@
     ./throne.nix
     ./steam.nix
     ./nh.nix
+    ./vr.nix
 	];
 }
