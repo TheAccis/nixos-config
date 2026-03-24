@@ -1,9 +1,8 @@
 {
 	imports = [
 		./packages.nix
-    ./throne.nix
-    ./steam.nix
-    ./nh.nix
-    ./vr.nix
+		./throne.nix
+		./steam.nix
+		./nh.nix
 	];
 }

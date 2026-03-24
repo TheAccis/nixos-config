@@ -1,5 +1,5 @@
 {
-  services.upower.enable = true;
+	services.upower.enable = true;
 
 	powerManagement = {
 		enable = true;
@@ -27,7 +27,7 @@
 		USB_EXCLUDE_AUDIO = "Y";
 		USB_EXCLUDE_PRINTER = "Y";
 		USB_EXCLUDE_WWAN = "Y";
-    
+
 		BAY_POWEROFF_ON_BAT = 1;
 		RUNTIME_PM_ON_BAT = "auto";
 		RUNTIME_PM_DRIVER_BLACKLIST = "mei_me nouveau";

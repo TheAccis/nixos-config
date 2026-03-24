@@ -4,17 +4,6 @@
 	services.wivrn = {
 		enable = true;
 		openFirewall = true;
-		config = {
-			encoder = [
-				{
-					encoder = "nvenc";
-					codec   = "h265";
-					bitrate = 50000000;
-					width   = 1.0;
-					height  = 1.0;
-				}
-			];
-		};
 	};
 
 	environment.systemPackages = with pkgs; [

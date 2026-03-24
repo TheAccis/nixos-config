@@ -2,6 +2,7 @@
 {
 	system.stateVersion = meta.version;
 
+	nixpkgs.config.android_sdk.accept_license = true;
 	nixpkgs.config.allowUnfree = true;
 	nix.channel.enable = false;
 

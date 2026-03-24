@@ -1,7 +1,5 @@
 { config, inputs, pkgs, ... }:
 {
-	programs.gpu-screen-recorder.enable = true;
-
 	documentation = {
 		enable = false;
 		dev.enable = false;
