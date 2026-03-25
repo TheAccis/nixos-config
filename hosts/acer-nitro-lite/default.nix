@@ -30,7 +30,9 @@
 		powertop
 	];
 
-	# home-manager.users.${meta.user} = {
-	# 	services.flatpak.packages = [ "io.github.glaumar.QRookie" ];
-	# };
+	home-manager.users.${meta.user} = {
+		services.flatpak.packages = [
+			# "io.github.glaumar.QRookie"
+		];
+	};
 }

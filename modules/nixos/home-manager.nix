@@ -1,4 +1,4 @@
-{ nur-pkgs, config, inputs, meta, pkgs, lib, ... }:
+{ config, inputs, meta, pkgs, lib, ... }:
 {
 	home-manager = {
 		useGlobalPkgs = true;
@@ -8,7 +8,6 @@
 		extraSpecialArgs = {
 			inherit meta;
 			vscode-extensions = inputs.vscode-extensions.extensions.${meta.system};
-			firefox-addons = nur-pkgs.repos.rycee.firefox-addons;
 
 			modules = {
 				caelestia-shell = inputs.caelestia-shell;

@@ -3,7 +3,6 @@
   imports = [
     modules.caelestia-shell.homeManagerModules.default
     modules.nix-flatpak.homeManagerModules.nix-flatpak
-    modules.zen-browser.homeModules.twilight
     modules.stylix.homeModules.stylix
 
     meta.lib-modules.home

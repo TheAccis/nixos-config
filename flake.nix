@@ -16,19 +16,18 @@
 	 	agenix.inputs.nixpkgs.follows = "nixpkgs";
 
 		vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-		nur.url = "github:nix-community/NUR";
 
 		stylix.url = "github:danth/stylix/release-25.11";
 		stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-		zen-browser.url = "github:0xc000022070/zen-browser-flake";
-		zen-browser.inputs.nixpkgs.follows = "nixpkgs";
-
 		caelestia-shell.url = "github:caelestia-dots/shell";
 		caelestia-shell.inputs.nixpkgs.follows = "nixpkgs";
+
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix";
+    aagl.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-	outputs = { self, nixpkgs, home-manager, nur, ... }@inputs:
+	outputs = { self, nixpkgs, home-manager, ... }@inputs:
 	let
 		meta = import ./meta {
 			pkgs = nixpkgs.legacyPackages."x86_64-linux";
@@ -38,18 +37,13 @@
 
 		pkgs = nixpkgs.legacyPackages."${meta.system}";
 
-		nur-pkgs = import nur {
-			inherit pkgs;
-			nurpkgs = pkgs;
-		};
-
 		install-script = import ./meta/lib/scripts/install-system.nix {
 			inherit self inputs meta pkgs;
 		};
 
 		makeSystem = hostname: nixpkgs.lib.nixosSystem {
 			system = meta.system;
-			specialArgs = { inherit hostname nur-pkgs inputs meta; };
+			specialArgs = { inherit hostname inputs meta; };
 			modules = [
 				./hosts/${hostname}
 				inputs.disko.nixosModules.disko
