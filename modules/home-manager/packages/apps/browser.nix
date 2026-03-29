@@ -20,9 +20,9 @@
     ];
   };
 
-  xdg.desktopEntries."chromium" = {
+  xdg.desktopEntries."chromium-browser" = {
     name        = "Chromium";
-    genericName = "Web Browser";
+    genericName = "Веб-браузер";
     exec        = "chromium --name chromium %U";
     icon        = "chromium";
     terminal    = false;
