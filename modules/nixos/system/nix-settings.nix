@@ -2,9 +2,14 @@
 {
 	system.stateVersion = meta.version;
 
-	nixpkgs.config.android_sdk.accept_license = true;
-	nixpkgs.config.allowUnfree = true;
 	nix.channel.enable = false;
+
+	nixpkgs.config = {
+		allowUnfree = true;
+
+		android_sdk.accept_license = true;
+		cudaSupport = true;
+	};
 
 	nix.settings = {
 		experimental-features = [ "nix-command" "flakes" ];
@@ -22,6 +27,7 @@
 			"https://nix-community.cachix.org"
 			"https://hyprland.cachix.org"
 			"https://ezkea.cachix.org"
+			"https://cache.nixos-cuda.org"
 		];
 
 		trusted-public-keys = [
@@ -29,6 +35,7 @@
 			"nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
 			"hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
 			"ezkea.cachix.org-1:ioBmUbJnggtSnnQtQ2SGsVB6q9nv8nzWIn/zereyzKA="
+			"cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
 		];
 
 		auto-optimise-store = true;
