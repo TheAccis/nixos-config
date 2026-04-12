@@ -3,9 +3,8 @@
 	imports = [
 		../../modules/nixos
 
-		# ../shared-modules/virt-manager.nix
+		# ../shared-modules/java.nix
 		../shared-modules/nvidia.nix
-		../shared-modules/java.nix
 
 		./hardware-configuration.nix
 	];

@@ -6,15 +6,6 @@
 		fd
 	];
 
-	programs."${meta.apps.shell}".shellAliases =
-	{
-		grep = "rg"; # grep -> ripgrep
-
-		find = "fd"; # find -> fd
-
-		cat = "bat"; # cat -> bat
-	};
-
 	programs.bat = {
 		enable = true;
 		config = {

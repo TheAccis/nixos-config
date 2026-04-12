@@ -1,7 +1,6 @@
 { config, inputs, pkgs, ... }:
 {
 	imports = [ inputs.aagl.nixosModules.default ];
-	programs.sleepy-launcher.enable = true;
 
 	documentation = {
 		enable = false;

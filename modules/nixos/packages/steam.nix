@@ -16,7 +16,7 @@
 		};
 	};
 
-	environment.systemPackages = with pkgs; [
-		gamescope
-	];
+	#environment.systemPackages = with pkgs; [
+	#	gamescope
+	#];
 }
