@@ -7,7 +7,7 @@
 		meta.apps.archiver.pkg
 		telegram-desktop
 		mission-center
-		#pwvucontrol
+		pwvucontrol
 		obsidian
 		#pinta
 		#mpv

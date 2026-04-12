@@ -14,13 +14,16 @@
 
 	boot.kernelPackages = lib.mkForce pkgs.linuxPackages_zen;
 
+	environment.variables = {
+		QSG_RHI_BACKEND = "vulkan";
+	};
+
 	programs.nm-applet.enable = true;
 
 	services.hardware.openrgb.enable = true;
 	home-manager.users.${meta.user} = {
 		# services.flatpak.packages = [ "io.github.glaumar.QRookie" ];
 		home.packages = with pkgs; [
-			openrgb
 			lutris
 		];
 	};

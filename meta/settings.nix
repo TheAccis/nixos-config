@@ -11,6 +11,7 @@ rec {
 
 	# Locale
 	locale = {
+		short = "ru";
 		default = "ru_RU";
 		fallback = "en_US";
 		encoding = "UTF-8";
