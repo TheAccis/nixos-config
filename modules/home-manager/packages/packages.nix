@@ -16,8 +16,10 @@
 		# CLI utils
 		wl-clipboard
 		appimage-run
+        microfetch
 		cliphist
 		p7zip
+        tree
 
 		libnotify
 	];
