@@ -5,6 +5,7 @@
 		# Desktop apps
 		meta.apps.torrent-client.pkg
 		meta.apps.archiver.pkg
+		gpu-screen-recorder
 		telegram-desktop
 		mission-center
 		pwvucontrol

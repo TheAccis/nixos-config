@@ -11,6 +11,8 @@
 		nixos.enable = false;
 	};
 
+	programs.gpu-screen-recorder.enable = true;
+
 	environment.systemPackages = with pkgs;
 	[
 		ntfs3g
