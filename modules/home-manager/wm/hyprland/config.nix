@@ -20,6 +20,7 @@
 			"XDG_SESSION_TYPE,wayland"
 			"XDG_SESSION_DESKTOP,Hyprland"
 			"QT_QPA_PLATFORM,wayland"
+            "WLR_DRM_DEVICES,/dev/dri/card1"
 
 			"XCURSOR_THEME,${config.stylix.cursor.name}"
 			"XCURSOR_SIZE,${toString config.stylix.cursor.size}"
@@ -68,14 +69,14 @@
 
 		animations = {
 			enabled = true;
-		
+
 			bezier = [
 				"overshoot, 0.05, 0.9, 0.1, 1.1"
 				"smooth, 0.16, 1.0, 0.3, 1.0"
 				"spring, 0.64, 0.0, 0.36, 1.0"
 				"linear, 0.0, 0.0, 1.0, 1.0"
 			];
-		
+
 			animation = [
 				"windows, 1, 8, overshoot, popin 85%"
 				"workspaces, 1, 8, smooth, slide"

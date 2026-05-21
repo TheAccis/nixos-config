@@ -4,7 +4,7 @@
 		# ./wofi
 
 		./caelestia-shell.nix
-    ./policy-kit.nix
+		./policy-kit.nix
 		./config.nix
 		./binds.nix
 	];
